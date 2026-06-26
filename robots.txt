@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://itachiuchiha976.github.io/curiosa-boutique/sitemap.xml
