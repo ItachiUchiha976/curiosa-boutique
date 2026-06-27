@@ -128,9 +128,26 @@ function initCartPage() {
       wrapper.innerHTML = `
         <div class="cart-empty">
           <h2>Votre panier est vide</h2>
-          <p style="margin-bottom:2rem">Découvrez notre cabinet de curiosités et trouvez l'objet qui traversera les siècles.</p>
-          <a href="index.html" class="btn-primary">Voir le catalogue</a>
+          <p style="margin-bottom:1.5rem">Découvrez notre cabinet de curiosités et trouvez l'objet qui traversera les siècles.</p>
+          <div class="cart-empty__ctas">
+            <a href="index.html" class="btn-primary">Voir le catalogue</a>
+            <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" class="btn-secondary-full" style="width:auto;display:inline-block">Échos du Passé ↗</a>
+          </div>
+          <div class="cart-empty__vip">
+            <p style="margin-bottom:1rem"><strong>Le paiement ouvre bientôt.</strong> Rejoins la liste VIP : -10 % à l'ouverture + accès prioritaire.</p>
+            <form class="capture-form w3-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+              <input type="hidden" name="subject" value="Curiosa nouveau lead VIP">
+              <input type="hidden" name="from_name" value="Curiosa">
+              <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+              <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
+              <button type="submit" class="btn-primary" style="white-space:nowrap">Rejoindre la liste VIP</button>
+              <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="cgv.html#rgpd">RGPD</a>).</label>
+            </form>
+            <p class="w3-msg capture-msg" style="color:var(--gold)">Merci ! Tu es sur la liste VIP.</p>
+          </div>
         </div>`;
+      initCapture();
       return;
     }
 
@@ -160,29 +177,35 @@ function initCartPage() {
       <div class="cart-total">
         <h3>Total : ${total.toFixed(2)} €</h3>
         <div class="checkout-stub">
-          <h3>Finaliser ma commande</h3>
-          <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Laissez vos coordonnées — nous vous contactons dès que le paiement en ligne est activé (bientôt). <strong>0€ prélevé maintenant.</strong></p>
-          <form id="checkout-form" novalidate>
+          <h3>Accès prioritaire à l'ouverture</h3>
+          <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Le paiement en ligne ouvre très bientôt. Laisse ton email pour rejoindre la <strong>liste VIP</strong> : tu seras prévenu(e) en priorité et tu recevras <strong>-10 %</strong> sur cette commande. <strong>0 € prélevé maintenant.</strong></p>
+          <form id="checkout-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+            <input type="hidden" name="subject" value="Curiosa réservation VIP panier">
+            <input type="hidden" name="from_name" value="Curiosa">
+            <input type="hidden" name="panier" id="cf-cart" value="">
+            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label for="cf-name">Prénom *</label>
-              <input type="text" id="cf-name" placeholder="Votre prénom" required>
+              <input type="text" name="prenom" id="cf-name" placeholder="Votre prénom" required>
             </div>
             <div class="form-group">
               <label for="cf-email">Email *</label>
-              <input type="email" id="cf-email" placeholder="votre@email.fr" required>
+              <input type="email" name="email" id="cf-email" placeholder="votre@email.fr" required>
             </div>
             <div class="form-group">
               <label for="cf-phone">Téléphone (optionnel)</label>
-              <input type="tel" id="cf-phone" placeholder="06 XX XX XX XX">
+              <input type="tel" name="telephone" id="cf-phone" placeholder="06 XX XX XX XX">
             </div>
-            <button type="submit" class="btn-checkout">Réserver ma commande</button>
-            <p class="checkout-note">Vos données sont utilisées uniquement pour vous contacter lors de l'ouverture des paiements. Aucune donnée n'est partagée avec des tiers.</p>
+            <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte d'être contacté(e) par Curiosa à propos de l'ouverture des paiements (<a href="cgv.html#rgpd">RGPD</a>).</label>
+            <button type="submit" class="btn-checkout">Rejoindre la liste VIP</button>
+            <p class="checkout-note">Tes données servent uniquement à te contacter lors de l'ouverture des paiements. Aucune donnée n'est partagée avec des tiers. Désinscription en 1 clic.</p>
           </form>
           <div id="checkout-success" style="display:none;text-align:center;padding:1.5rem 0">
             <div style="font-size:2rem;margin-bottom:.5rem">✓</div>
-            <h4 style="font-family:var(--font-serif);font-size:1.2rem;margin-bottom:.5rem">Réservation enregistrée !</h4>
-            <p style="font-size:.88rem;color:var(--text2)">On vous contacte dès que le paiement est activé. En attendant, explorez Échos du Passé pour plonger dans l'Histoire.</p>
-            <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" class="btn-primary" style="margin-top:1rem;display:inline-block">Voir la chaîne YouTube</a>
+            <h4 style="font-family:var(--font-serif);font-size:1.2rem;margin-bottom:.5rem">Tu es sur la liste VIP !</h4>
+            <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">On te contacte en priorité dès l'ouverture des paiements. En attendant, plonge dans l'Histoire avec Échos du Passé.</p>
+            <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block">S'abonner à Échos du Passé ↗</a>
           </div>
         </div>
       </div>`;
@@ -212,44 +235,80 @@ function initCartPage() {
       });
     });
 
-    // Checkout form
+    // Checkout form (réservation VIP via Web3Forms)
     const form = document.getElementById('checkout-form');
     if (form) {
-      form.addEventListener('submit', e => {
+      form.addEventListener('submit', async e => {
         e.preventDefault();
-        const name  = document.getElementById('cf-name').value.trim();
-        const email = document.getElementById('cf-email').value.trim();
-        if (!name || !email) { showToast('Merci de remplir votre prénom et email.'); return; }
-        // Save to localStorage
-        const orders = JSON.parse(localStorage.getItem('curiosa_orders') || '[]');
-        orders.push({ name, email, cart: loadCart(), date: new Date().toISOString() });
-        localStorage.setItem('curiosa_orders', JSON.stringify(orders));
-        form.style.display = 'none';
-        document.getElementById('checkout-success').style.display = 'block';
-        // Clear cart
-        saveCart([]);
-        refreshBadge();
+        if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+        // Récapitulatif panier envoyé avec le lead
+        const cartNow = loadCart();
+        const summary = cartNow.map(i => `${i.qty}x ${i.name} (${(i.price * i.qty).toFixed(2)} €)`).join(' | ');
+        const cartField = document.getElementById('cf-cart');
+        if (cartField) cartField.value = `${summary} — Total ${cartNow.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2)} €`;
+        const btn = form.querySelector('button[type=submit]');
+        const orig = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            document.getElementById('checkout-success').style.display = 'block';
+            saveCart([]);
+            refreshBadge();
+          } else {
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
+            showToast('Une erreur est survenue, réessaie dans un instant.');
+          }
+        } catch {
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          showToast('Erreur réseau — vérifie ta connexion et réessaie.');
+        }
       });
     }
   }
   renderCart();
 }
 
-/* ── Email capture ── */
+/* ── Email capture (Web3Forms AJAX) ── */
 function initCapture() {
-  const form = document.getElementById('capture-form');
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const email = form.querySelector('input[type=email]').value.trim();
-    if (!email) return;
-    const subs = JSON.parse(localStorage.getItem('curiosa_subs') || '[]');
-    subs.push({ email, date: new Date().toISOString() });
-    localStorage.setItem('curiosa_subs', JSON.stringify(subs));
-    const msg = document.getElementById('capture-msg');
-    if (msg) { msg.style.display = 'block'; }
-    form.reset();
-    showToast('Bienvenue dans le Cabinet ! Vérifiez votre email.');
+  document.querySelectorAll('form.w3-form').forEach(form => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      // Validation native (email requis + consentement RGPD si présent)
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+      const btn = form.querySelector('button[type=submit]');
+      const orig = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (res.ok) {
+          const parent = form.parentElement;
+          const msg = parent ? parent.querySelector('.w3-msg') : null;
+          form.style.display = 'none';
+          const consent = parent ? parent.querySelector('.capture-consent') : null;
+          if (consent) consent.style.display = 'none';
+          if (msg) { msg.style.display = 'block'; }
+          else showToast('Merci ! Tu es sur la liste VIP.');
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          showToast('Une erreur est survenue, réessaie dans un instant.');
+        }
+      } catch {
+        if (btn) { btn.disabled = false; btn.textContent = orig; }
+        showToast('Erreur réseau — vérifie ta connexion et réessaie.');
+      }
+    });
   });
 }
 

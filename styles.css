@@ -622,6 +622,7 @@ button { cursor: pointer; font-family: inherit; }
 .capture-form {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: .75rem;
   max-width: 400px;
   margin: 0 auto;
@@ -629,6 +630,10 @@ button { cursor: pointer; font-family: inherit; }
 @media(min-width:500px){
   .capture-form { flex-direction: row; }
 }
+/* Consentement RGPD sur sa propre ligne dans les formulaires flex */
+.capture-form .capture-consent,
+.vip-strip__form .capture-consent,
+.prod-cta__form .capture-consent { flex-basis: 100%; width: 100%; margin-top: 0; }
 .capture-form input {
   flex: 1;
   padding: .85rem 1rem;
@@ -836,3 +841,135 @@ button { cursor: pointer; font-family: inherit; }
   display: none;
 }
 .overlay.show { display: block; }
+
+/* ── VIP strip (capture haut de page) ── */
+.vip-strip {
+  background: linear-gradient(135deg, #2A1F0A 0%, #1C1508 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+.vip-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+.vip-strip__text { color: var(--parch3); font-size: .92rem; flex: 1 1 300px; }
+.vip-strip__text strong { color: var(--gold-lt); }
+.vip-strip__action { flex: 1 1 320px; }
+.vip-strip__form { display: flex; flex-wrap: wrap; gap: .6rem; }
+.vip-strip__form input[type=email] {
+  flex: 1 1 180px;
+  min-height: 44px;
+  padding: .7rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08);
+  color: var(--parch);
+  font-size: .95rem;
+  outline: none;
+}
+.vip-strip__form input[type=email]::placeholder { color: var(--text3); }
+.vip-strip__form input[type=email]:focus { border-color: var(--gold); }
+.vip-strip__form .btn-primary { min-height: 44px; padding: .7rem 1.5rem; }
+
+/* ── Messages Web3Forms ── */
+.w3-msg { display: none; }
+.vip-strip__msg { color: var(--gold-lt); font-size: .9rem; margin-top: .5rem; }
+
+/* ── Consentement RGPD ── */
+.capture-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: .78rem;
+  color: var(--text3);
+  margin-top: .9rem;
+  text-align: left;
+  line-height: 1.5;
+}
+.capture .capture-consent { color: var(--parch3); max-width: 440px; margin-left: auto; margin-right: auto; }
+.capture-consent input[type=checkbox] { margin-top: .2rem; flex-shrink: 0; width: 16px; height: 16px; }
+
+/* ── Lien alternatif YouTube sous capture ── */
+.capture-alt { font-size: .88rem; color: var(--parch3); margin-top: 1.25rem; }
+.capture-alt a { color: var(--gold); font-weight: 600; }
+
+/* ── Prix conseillé (remplace prix barré non documenté) ── */
+.price-rec { font-size: .85rem; color: var(--text3); }
+
+/* ── Bloc CTA pages produit (VIP + YouTube) ── */
+.prod-cta { padding: 3.5rem 0; background: var(--parch2); }
+.prod-cta__box {
+  max-width: 620px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1C1508 0%, #2A1F0A 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.prod-cta__box h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--parch);
+  margin-bottom: .75rem;
+}
+.prod-cta__box > p { color: var(--parch3); font-size: .95rem; margin-bottom: 1.5rem; }
+.prod-cta__box > p strong { color: var(--gold-lt); }
+.prod-cta__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.prod-cta__form input[type=email] {
+  flex: 1 1 180px;
+  min-height: 44px;
+  padding: .75rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08);
+  color: var(--parch);
+  font-size: .95rem;
+  outline: none;
+}
+.prod-cta__form input[type=email]::placeholder { color: var(--text3); }
+.prod-cta__form input[type=email]:focus { border-color: var(--gold); }
+.prod-cta__form .btn-primary { min-height: 44px; }
+.prod-cta__msg { color: var(--gold-lt); font-size: .92rem; margin-top: .75rem; }
+.prod-cta__box .capture-consent { color: var(--parch3); max-width: 420px; margin-left: auto; margin-right: auto; }
+.prod-cta__alt { font-size: .9rem; color: var(--parch3); margin-top: 1.25rem; }
+.prod-cta__alt a { color: var(--gold); font-weight: 600; }
+
+/* ── Panier vide — CTAs ── */
+.cart-empty__ctas {
+  display: flex; flex-wrap: wrap; gap: .75rem;
+  justify-content: center; margin-bottom: 2.5rem;
+}
+.cart-empty__vip {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 1.75rem;
+  background: linear-gradient(135deg, #1C1508 0%, #2A1F0A 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  color: var(--parch3);
+}
+.cart-empty__vip .capture-form { display: flex; flex-wrap: wrap; gap: .6rem; }
+.cart-empty__vip input[type=email] {
+  flex: 1 1 180px; min-height: 44px;
+  padding: .7rem 1rem; border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.08); color: var(--parch);
+  font-size: .95rem; outline: none;
+}
+.cart-empty__vip input[type=email]::placeholder { color: var(--text3); }
+.cart-empty__vip .btn-primary { min-height: 44px; }
+
+/* ── Touch targets ── */
+@media(max-width:767px){
+  .footer-social a { width: 44px; height: 44px; }
+}

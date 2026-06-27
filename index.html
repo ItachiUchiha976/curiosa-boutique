@@ -82,6 +82,7 @@
         <div class="hero-ctas">
           <a href="produit-globe.html" class="btn-primary">Découvrir le Globe Héros</a>
           <a href="#catalogue" class="btn-outline">Voir le catalogue</a>
+          <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" class="btn-outline">Échos du Passé ↗</a>
         </div>
         <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:1.5rem">
           <div style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--parch3)">
@@ -105,7 +106,7 @@
                loading="eager">
           <div class="hero-badge-over">
             <strong>69 €</strong>
-            <span>Globe Terrestre Antique — HERO</span>
+            <span>Globe Terrestre Antique</span>
           </div>
         </div>
       </div>
@@ -137,6 +138,27 @@
   </div>
 </div>
 
+<!-- VIP strip (capture haut de page) -->
+<section class="vip-strip" id="vip">
+  <div class="container vip-strip__inner">
+    <div class="vip-strip__text">
+      <strong>Le paiement en ligne ouvre bientôt.</strong> Rejoins la liste VIP : <strong>-10 %</strong> à l'ouverture + accès prioritaire aux nouvelles pièces du Cabinet.
+    </div>
+    <div class="vip-strip__action">
+      <form class="w3-form vip-strip__form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+        <input type="hidden" name="subject" value="Curiosa nouveau lead VIP">
+        <input type="hidden" name="from_name" value="Curiosa">
+        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
+        <button type="submit" class="btn-primary" style="white-space:nowrap">Je rejoins la liste VIP</button>
+        <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="cgv.html#rgpd">RGPD</a>).</label>
+      </form>
+      <p class="w3-msg vip-strip__msg">Merci ! Tu es sur la liste VIP. À très vite dans le Cabinet.</p>
+    </div>
+  </div>
+</section>
+
 <!-- Catalogue -->
 <section class="section" id="catalogue">
   <div class="container">
@@ -156,13 +178,12 @@
           </div>
         </a>
         <div class="product-card__body">
-          <div class="product-card__tag">BESTSELLER · HERO</div>
+          <div class="product-card__tag">Pièce phare du Cabinet</div>
           <h3 class="product-card__title">Globe Terrestre Antique</h3>
           <p class="product-card__story">Inspiré des globes des cabinets de curiosités du XVIIe siècle. Cartographie vieillie, socle bois et métal doré. Le cadeau dont on parle encore 10 ans après.</p>
           <div class="product-card__price-row">
             <span class="price-main">69 €</span>
-            <span class="price-cross">99 €</span>
-            <span class="price-badge">-30%</span>
+            <span class="price-rec">Prix conseillé 99 €</span>
           </div>
           <button class="btn-card" data-add-cart data-id="globe-001" data-name="Globe Terrestre Antique" data-price="69">Ajouter au panier</button>
         </div>
@@ -182,8 +203,7 @@
           <p class="product-card__story">Ne s'ouvre qu'aux esprits les plus curieux. Inspirée des coffres à mécanisme secret des marchands orientaux du XVIe siècle. ~20 min pour la résoudre.</p>
           <div class="product-card__price-row">
             <span class="price-main">54 €</span>
-            <span class="price-cross">79 €</span>
-            <span class="price-badge">-32%</span>
+            <span class="price-rec">Prix conseillé 79 €</span>
           </div>
           <button class="btn-card" data-add-cart data-id="boite-001" data-name="Boîte-Énigme Coffre Secret" data-price="54">Ajouter au panier</button>
         </div>
@@ -203,8 +223,7 @@
           <p class="product-card__story">Symbole universel du temps qui passe depuis les navigateurs arabes du Xe siècle. Métal doré ouvragé, sable naturel — un objet qui déclenche des conversations.</p>
           <div class="product-card__price-row">
             <span class="price-main">44 €</span>
-            <span class="price-cross">65 €</span>
-            <span class="price-badge">-32%</span>
+            <span class="price-rec">Prix conseillé 65 €</span>
           </div>
           <button class="btn-card" data-add-cart data-id="sablier-001" data-name="Sablier Rétro Métal Doré" data-price="44">Ajouter au panier</button>
         </div>
@@ -224,8 +243,7 @@
           <p class="product-card__story">Mappemonde style XVIIIe, encadrée, prête à accrocher. Évoque les routes maritimes et les terra incognita des Grandes Découvertes.</p>
           <div class="product-card__price-row">
             <span class="price-main">39 €</span>
-            <span class="price-cross">59 €</span>
-            <span class="price-badge">-34%</span>
+            <span class="price-rec">Prix conseillé 59 €</span>
           </div>
           <button class="btn-card" data-add-cart data-id="carte-001" data-name="Poster Carte du Monde Vintage" data-price="39">Ajouter au panier</button>
         </div>
@@ -245,8 +263,7 @@
           <p class="product-card__story">Couverture simili-cuir vieilli, 200 pages non lignées. Le journal des explorateurs qui ont changé le monde — Marco Polo, Darwin, Indiana Jones.</p>
           <div class="product-card__price-row">
             <span class="price-main">34 €</span>
-            <span class="price-cross">49 €</span>
-            <span class="price-badge">-31%</span>
+            <span class="price-rec">Prix conseillé 49 €</span>
           </div>
           <button class="btn-card" data-add-cart data-id="carnet-001" data-name="Carnet Cuir Parchemin" data-price="34">Ajouter au panier</button>
         </div>
@@ -266,8 +283,7 @@
           <p class="product-card__story">5 000 ans de civilisation sur votre étagère. Résine haute densité peinte à la main, finition stone effect. L'Égypte antique fascine encore — et ses mystères ne sont pas résolus.</p>
           <div class="product-card__price-row">
             <span class="price-main">49 €</span>
-            <span class="price-cross">69 €</span>
-            <span class="price-badge">-29%</span>
+            <span class="price-rec">Prix conseillé 69 €</span>
           </div>
           <button class="btn-card" data-add-cart data-id="statuette-001" data-name="Statuette Inspiration Égypte" data-price="49">Ajouter au panier</button>
         </div>
@@ -339,14 +355,20 @@
 <!-- Email capture -->
 <section class="capture">
   <div class="container">
-    <h2>Accès en avant-première aux nouvelles pièces</h2>
-    <p>Entrez dans le Cabinet — les nouveautés, offres exclusives et coulisses de la sélection directement dans votre boîte mail.</p>
-    <form class="capture-form" id="capture-form" novalidate>
-      <input type="email" placeholder="votre@email.fr" required aria-label="Votre email">
-      <button type="submit" class="btn-primary" style="white-space:nowrap">Rejoindre le Cabinet</button>
+    <h2>Liste VIP — accès prioritaire à l'ouverture</h2>
+    <p>Le paiement en ligne arrive bientôt. Inscris-toi pour être prévenu(e) de l'ouverture, recevoir <strong>-10 %</strong> sur ta première commande et l'accès en avant-première aux nouvelles pièces du Cabinet.</p>
+    <form class="capture-form w3-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+      <input type="hidden" name="subject" value="Curiosa nouveau lead VIP">
+      <input type="hidden" name="from_name" value="Curiosa">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
+      <button type="submit" class="btn-primary" style="white-space:nowrap">Rejoindre la liste VIP</button>
+      <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="cgv.html#rgpd">politique RGPD</a>).</label>
     </form>
-    <p class="capture-msg" id="capture-msg">Bienvenue dans le Cabinet ! Vérifiez votre email.</p>
-    <p style="font-size:.78rem;color:var(--text3);margin-top:.75rem">Désabonnement à tout moment. Aucune donnée partagée.</p>
+    <p class="w3-msg capture-msg">Merci ! Tu es sur la liste VIP. À très vite dans le Cabinet.</p>
+    <p style="font-size:.78rem;color:var(--text3);margin-top:.75rem">Pas de spam. Désinscription en 1 clic. Aucune donnée partagée.</p>
+    <p class="capture-alt">Envie d'Histoire en attendant ? <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener">Abonne-toi à Échos du Passé ↗</a></p>
   </div>
 </section>
 
@@ -359,8 +381,6 @@
         <p>Cabinet de Curiosités en ligne — objets chargés d'Histoire pour passionnés et amateurs de cadeaux originaux.</p>
         <div class="footer-social">
           <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" title="YouTube Échos du Passé">YT</a>
-          <a href="#" title="Instagram Curiosa">IG</a>
-          <a href="#" title="TikTok Curiosa">TK</a>
         </div>
       </div>
       <div class="footer-col">
