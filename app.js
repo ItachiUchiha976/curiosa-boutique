@@ -134,17 +134,18 @@ function initCartPage() {
             <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" class="btn-secondary-full" style="width:auto;display:inline-block">Échos du Passé ↗</a>
           </div>
           <div class="cart-empty__vip">
-            <p style="margin-bottom:1rem">Inscris-toi à la newsletter du Cabinet Curiosa : <strong>-10 %</strong> sur ta prochaine commande + accès prioritaire aux nouvelles pièces.</p>
+            <p style="margin-bottom:1rem">Inscris-toi à la newsletter du Cabinet Curiosa pour être averti(e) en avant-première des nouvelles pièces.</p>
             <form class="capture-form w3-form" action="https://api.web3forms.com/submit" method="POST">
               <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
-              <input type="hidden" name="subject" value="Curiosa nouveau lead VIP">
+              <input type="hidden" name="subject" value="Curiosa inscription newsletter">
               <input type="hidden" name="from_name" value="Curiosa">
+              <input type="hidden" name="source" value="panier-vide">
               <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
               <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
-              <button type="submit" class="btn-primary" style="white-space:nowrap">Rejoindre la liste VIP</button>
+              <button type="submit" class="btn-primary" style="white-space:nowrap">S'inscrire à la newsletter</button>
               <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="cgv.html#rgpd">RGPD</a>).</label>
             </form>
-            <p class="w3-msg capture-msg" style="color:var(--gold)">Merci ! Tu es sur la liste VIP.</p>
+            <p class="w3-msg capture-msg" style="color:var(--gold)">Merci ! Tu es inscrit(e) à la newsletter.</p>
           </div>
         </div>`;
       initCapture();
@@ -238,7 +239,7 @@ function initCapture() {
           const consent = parent ? parent.querySelector('.capture-consent') : null;
           if (consent) consent.style.display = 'none';
           if (msg) { msg.style.display = 'block'; }
-          else showToast('Merci ! Tu es sur la liste VIP.');
+          else showToast('Merci ! Tu es inscrit(e) à la newsletter.');
         } else {
           if (btn) { btn.disabled = false; btn.textContent = orig; }
           showToast('Une erreur est survenue, réessaie dans un instant.');
