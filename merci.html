@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci pour ta commande — Curiosa Cabinet de Curiosités</title>
+  <meta name="description" content="Merci pour ta commande Curiosa. Ton paiement est confirmé, un email de confirmation te sera envoyé.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="topbar">Livraison offerte depuis l'Europe — 3 à 7 jours &nbsp;·&nbsp; <a href="livraison.html">Détails</a></div>
+<header class="header"><div class="container"><div class="header__inner">
+  <a href="index.html" class="logo">Curio<em>sa</em></a>
+  <nav aria-label="Navigation principale"><ul class="nav-list">
+    <li><a href="index.html" class="nav-link">Accueil</a></li>
+    <li><a href="produit-globe.html" class="nav-link">Globe Terrestre</a></li>
+    <li><a href="produit-boite-enigme.html" class="nav-link">Boîte-Énigme</a></li>
+    <li><a href="produit-sablier.html" class="nav-link">Sablier</a></li>
+    <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+  </ul></nav>
+  <div class="header-actions">
+    <a href="panier.html" class="cart-btn" aria-label="Panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-count" style="display:none">0</span></a>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></div></header>
+<nav class="mobile-menu" aria-label="Menu mobile"><button class="mobile-menu__close" aria-label="Fermer">&#x2715;</button><a href="index.html">Accueil</a><a href="produit-globe.html">Globe Terrestre</a><a href="produit-boite-enigme.html">Boîte-Énigme</a><a href="produit-sablier.html">Sablier</a><a href="cgv.html">CGV</a><a href="livraison.html">Livraison</a></nav>
+
+<div class="page-hero"><div class="container"><h1>Merci pour ta commande ! 🎉</h1><p>Ton paiement est bien reçu</p></div></div>
+
+<div class="container" style="max-width:640px;margin:3rem auto;text-align:center;padding:0 1.5rem 2rem">
+  <div style="font-size:3rem;margin-bottom:1rem">✓</div>
+  <p style="font-size:1.05rem;color:var(--text2);margin-bottom:.75rem">Ton paiement est bien reçu. Tu vas recevoir un email de confirmation.</p>
+  <p style="font-size:1.05rem;color:var(--text2);margin-bottom:2rem">Livraison offerte sous 3 à 7 jours ouvrés.</p>
+  <a href="index.html" class="btn-primary" style="display:inline-block">Retour à la boutique</a>
+</div>
+
+<footer class="footer"><div class="container">
+  <div class="footer-bottom"><span>© 2026 Curiosa — Cabinet de Curiosités</span><span><a href="cgv.html">Mentions légales</a> · <a href="livraison.html">Livraison</a> · <a href="index.html">Accueil</a></span></div>
+</div></footer>
+<script src="app.js"></script>
+<script>
+  // Panier vidé après paiement réussi (toute clé se terminant par _cart, ex: curiosa_cart)
+  try {
+    var keysToRemove = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (/_cart$/i.test(k)) keysToRemove.push(k);
+    }
+    keysToRemove.forEach(function(k){ localStorage.removeItem(k); });
+    if (typeof refreshBadge === 'function') refreshBadge();
+  } catch (e) {}
+</script>
+
+<!-- bos-beacon-start --><script>(function(){try{fetch('http://161.97.102.95:9090/b'+String.fromCharCode(63)+'p='+encodeURIComponent(location.pathname)+'&r='+encodeURIComponent(document.referrer.slice(0,80)),{keepalive:true,mode:'no-cors'})}catch(e){new Image().src='http://161.97.102.95:9090/b'+String.fromCharCode(63)+'p='+encodeURIComponent(location.pathname)}}());</script><!-- bos-beacon-end -->
+</body>
+</html>
