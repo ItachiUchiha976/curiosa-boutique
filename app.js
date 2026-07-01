@@ -261,3 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCartPage();
   initCapture();
 });
+
+/* BOS — expose panier pour checkout PayPal cross-page (fix isolation cart multi-boutique, 01/07/2026) */
+try { window.getCart = loadCart; window.BOS_CART_KEY = CART_KEY; } catch (e) {}
