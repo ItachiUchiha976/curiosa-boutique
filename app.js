@@ -8,6 +8,14 @@
 /* ── Storage key ── */
 const CART_KEY = 'curiosa_cart';
 
+/* ── Order bump : Carnet Cuir en case à cocher opt-in dans le panier (T2, 03/07/2026) ──
+   Prix plein du carnet seul = 34 € (produit-carnet.html, id carnet-001).
+   Bump = même carnet, même vraie photo, à 29 € SI ajouté depuis le panier — jamais pré-coché. */
+const BUMP_ID    = 'carnet-bump-29';
+const BUMP_NAME  = "Carnet Cuir Noir — Journal d'Explorateur";
+const BUMP_PRICE = 29;
+const FULL_CARNET_ID = 'carnet-001';
+
 /* ── Load cart ── */
 function loadCart() {
   try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
@@ -157,6 +165,8 @@ function initCartPage() {
     }
 
     const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const hasFullCarnet = cart.some(i => i.id === FULL_CARNET_ID);
+    const bumpChecked   = cart.some(i => i.id === BUMP_ID);
 
     const rows = cart.map(item => `
       <tr>
@@ -182,6 +192,18 @@ function initCartPage() {
       <div class="cart-total">
         <h3>Total : ${total.toFixed(2)} €</h3>
         <div class="checkout-stub">
+          ${hasFullCarnet ? '' : `
+          <div class="order-bump">
+            <label class="order-bump__label">
+              <input type="checkbox" id="bump-carnet-check" ${bumpChecked ? 'checked' : ''}>
+              <span class="order-bump__img"><img src="img/carnet-real.jpg" alt="Carnet Cuir Noir — Journal d'Explorateur" loading="lazy"></span>
+              <span class="order-bump__text">
+                <strong>Complétez votre cabinet</strong> — ajoutez le Carnet Cuir Noir, Journal d'Explorateur (même vraie photo que sur sa fiche).
+                <span class="order-bump__price">29&nbsp;€ ajouté à la commande <span class="order-bump__save">(34&nbsp;€ à l'unité — vous économisez 5&nbsp;€)</span></span>
+                <span class="order-bump__note">Livraison offerte. Selon les stocks, vos articles peuvent être expédiés dans des colis séparés, chacun avec son numéro de suivi.</span>
+              </span>
+            </label>
+          </div>`}
           <h3>Finaliser ma commande</h3>
           <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Paiement 100&nbsp;% sécurisé par PayPal — carte bancaire acceptée (pas besoin de compte PayPal). Livraison offerte · Satisfait ou remboursé 14 jours.</p>
           <label class="capture-consent"><input type="checkbox" id="cgv-check"> J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a>.</label>
@@ -214,6 +236,22 @@ function initCartPage() {
         renderCart();
       });
     });
+
+    // Order bump : case à cocher opt-in "Complétez votre cabinet" (jamais pré-cochée par défaut)
+    const bumpCheck = wrapper.querySelector('#bump-carnet-check');
+    if (bumpCheck) {
+      bumpCheck.addEventListener('change', () => {
+        if (bumpCheck.checked) {
+          // Réutilise addToCart() : même toast + mêmes events Umami/pintrk 'addtocart' que les fiches produit.
+          addToCart(BUMP_ID, BUMP_NAME, BUMP_PRICE, 1);
+        } else {
+          const cart = loadCart().filter(i => i.id !== BUMP_ID);
+          saveCart(cart);
+          refreshBadge();
+        }
+        renderCart();
+      });
+    }
   }
   renderCart();
 }
