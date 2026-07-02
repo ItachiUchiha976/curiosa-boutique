@@ -158,8 +158,9 @@
 
         <div class="delivery-note" style="margin-top:1.25rem">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          Livraison estimée 12 à 20 jours ouvrés · Retours 14 jours
+          <span class="bos-delivery-window">Livraison estimée 12 à 20 jours ouvrés</span> · Retours 14 jours
         </div>
+        <p class="bos-reassurance" style="margin-top:.5rem;font-size:.8rem;color:var(--text3)">✔ Remboursé 14 jours &middot; ✔ Numéro de suivi fourni &middot; ✔ Paiement sécurisé PayPal</p>
 
         <!-- Upsell Storm Glass -->
         <div style="margin-top:1.5rem;padding:1rem;background:rgba(200,150,12,.07);border-radius:var(--radius);border:1px solid var(--border)">
@@ -443,6 +444,40 @@
   </div>
 </footer>
 <script src="app.js"></script>
+
+<!-- bos-delivery-window-start : fenetre de livraison datee (jours ouvres), purement additif, 0 impact checkout/Umami -->
+<script>
+(function () {
+  function bosAddBizDays(date, days) {
+    var d = new Date(date.getTime());
+    var added = 0;
+    while (added < days) {
+      d.setDate(d.getDate() + 1);
+      var day = d.getDay();
+      if (day !== 0 && day !== 6) added++;
+    }
+    return d;
+  }
+  function bosFmtDayMonth(d) {
+    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+  }
+  try {
+    var today = new Date();
+    var minD = bosAddBizDays(today, 12);
+    var maxD = bosAddBizDays(today, 20);
+    var sameMonth = minD.getMonth() === maxD.getMonth() && minD.getFullYear() === maxD.getFullYear();
+    var minLabel = sameMonth ? String(minD.getDate()) : bosFmtDayMonth(minD);
+    var maxLabel = bosFmtDayMonth(maxD);
+    var fullText = "Commandez aujourd'hui → livraison estimée entre le " + minLabel + " et le " + maxLabel;
+    var compactText = "Livraison estimée entre le " + minLabel + " et le " + maxLabel;
+    var fullEls = document.querySelectorAll('.bos-delivery-window');
+    for (var i = 0; i < fullEls.length; i++) { fullEls[i].textContent = fullText; }
+    var compactEls = document.querySelectorAll('.bos-delivery-window-compact');
+    for (var j = 0; j < compactEls.length; j++) { compactEls[j].textContent = compactText; }
+  } catch (e) { /* JS indisponible : le texte statique par defaut deja present reste affiche */ }
+})();
+</script>
+<!-- bos-delivery-window-end -->
 
 <!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
 </body>
