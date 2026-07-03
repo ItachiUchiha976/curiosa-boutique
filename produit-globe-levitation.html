@@ -46,6 +46,50 @@
     .inline-capture .inline-form .btn-primary { min-height: 44px; white-space: nowrap; }
     .inline-capture .inline-msg { color: var(--gold-lt); font-size: .9rem; margin-top: .5rem; display: none; }
     .inline-capture .capture-consent { color: var(--parch3); flex-basis: 100%; }
+
+    /* BOS — Phase 0 conversion (03/07/2026) : hero scannable + réassurance + CTA sticky mobile */
+    .hero-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-bullets .product-feature { font-size: .98rem; font-weight: 600; color: var(--text); }
+
+    .bos-reassurance-list {
+      list-style: none;
+      margin-top: .6rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+    .bos-reassurance-list li {
+      font-size: .8rem;
+      color: var(--text3);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* Sticky CTA mobile : masqué desktop, visible <768px, même action que le CTA principal */
+    .sticky-cta-mobile {
+      display: none;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 400;
+      background: rgba(12,9,3,.97);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border);
+      padding: .6rem .9rem calc(.6rem + env(safe-area-inset-bottom));
+      box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+    }
+    .sticky-cta-mobile .btn-addcart { margin-bottom: 0; }
+    @media(max-width:767px){
+      .sticky-cta-mobile { display: block; }
+      body { padding-bottom: 4.5rem; }
+      .toast { bottom: 5.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -111,25 +155,24 @@
       <div class="product-detail__info">
         <div class="product-detail__tag">Pièce phare · Lune &amp; Lévitation Magnétique</div>
         <h1 class="product-detail__title">Lune en Lévitation Magnétique — Cabinet de Curiosités</h1>
-        <p class="product-detail__story">
-          La Lune flotte dans les airs et tourne sur elle-même, sans aucun support visible — propulsée par un champ magnétique entre la base en bois et la sphère. L'objet de bureau le plus spectaculaire du Cabinet, raconté avec le storytelling d'Échos du Passé.
-        </p>
+        <ul class="hero-bullets" aria-label="Points clés du produit">
+          <li class="product-feature">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Lune 3D en lévitation magnétique — aucun support visible
+          </li>
+          <li class="product-feature">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Rotation 360° automatique et silencieuse
+          </li>
+          <li class="product-feature">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            16 couleurs d'éclairage + télécommande incluse
+          </li>
+        </ul>
         <div class="product-detail__price">
           <span class="price-main">59 €</span>
         </div>
         <div class="product-features">
-          <div class="product-feature">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            Lune 3D en lévitation magnétique — aucun support visible
-          </div>
-          <div class="product-feature">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            Rotation 360° automatique et silencieuse
-          </div>
-          <div class="product-feature">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            16 couleurs d'éclairage + télécommande incluse
-          </div>
           <div class="product-feature">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
             Luminosité réglable + minuterie d'extinction automatique
@@ -160,7 +203,11 @@
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           <span class="bos-delivery-window">Livraison estimée 12 à 20 jours ouvrés</span> · Retours 30 jours
         </div>
-        <p class="bos-reassurance" style="margin-top:.5rem;font-size:.8rem;color:var(--text3)">✔ Satisfait ou remboursé 30 jours &middot; ✔ Numéro de suivi fourni &middot; ✔ Paiement sécurisé PayPal</p>
+        <ul class="bos-reassurance-list">
+          <li>✔ Paiement sécurisé PayPal</li>
+          <li>✔ Satisfait ou remboursé 30 jours</li>
+          <li>✔ Livraison suivie — numéro fourni à l'expédition</li>
+        </ul>
 
         <!-- Upsell Storm Glass -->
         <div style="margin-top:1.5rem;padding:1rem;background:rgba(200,150,12,.07);border-radius:var(--radius);border:1px solid var(--border)">
@@ -433,6 +480,11 @@
 </section>
 
 </main>
+
+<!-- BOS — CTA sticky mobile (Phase 0 conversion, 03/07/2026) : même data-add-cart que le CTA principal, aucune logique dupliquée -->
+<div class="sticky-cta-mobile" id="bos-sticky-cta">
+  <button class="btn-addcart" data-add-cart data-id="lune-levitation-001" data-name="Lune en Lévitation Magnétique" data-price="59">Ajouter au panier — 59 €</button>
+</div>
 
 <footer class="footer">
   <div class="container">

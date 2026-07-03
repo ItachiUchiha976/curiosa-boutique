@@ -58,7 +58,13 @@
     var offset = 0;
     try {
       var other = document.querySelector('.cookie-banner');
-      if (other && other.offsetParent !== null) offset = other.offsetHeight;
+      if (other && other.offsetParent !== null) offset += other.offsetHeight;
+    } catch (e) {}
+    /* BOS 03/07/2026 : ne jamais recouvrir le CTA sticky mobile (Phase 0 conversion) — la bannière
+       s'empile au-dessus si la barre existe et est visible ; no-op sur les pages sans cette barre. */
+    try {
+      var stickyCta = document.querySelector('.sticky-cta-mobile');
+      if (stickyCta && stickyCta.offsetParent !== null) offset += stickyCta.offsetHeight;
     } catch (e) {}
     var el = document.createElement('div');
     el.id = 'bos-consent-banner';
