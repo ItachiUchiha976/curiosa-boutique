@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#22180e">
+
+<title>Mythe ou Réalité ? Le Quiz des Idées Reçues de l'Histoire | Échos du Passé</title>
+<meta name="description" content="Sauras-tu démêler le vrai du faux ? 10 mythes historiques surprenants par partie (Vikings, Napoléon, pyramides, Cléopâtre…). Score final et résultat à partager. Quiz gratuit, rapide, mobile.">
+<meta name="author" content="Échos du Passé">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://curiosaboutique.fr/quiz/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Échos du Passé">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Mythe ou Réalité ? Le Quiz des Idées Reçues de l'Histoire">
+<meta property="og:description" content="10 mythes historiques surprenants par partie. Sauras-tu démêler le vrai du faux ? Teste-toi et partage ton score.">
+<meta property="og:url" content="https://curiosaboutique.fr/quiz/">
+<meta property="og:image" content="https://curiosaboutique.fr/quiz/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mythe ou Réalité ? Le Quiz des Idées Reçues de l'Histoire">
+<meta name="twitter:description" content="10 mythes historiques surprenants par partie. Sauras-tu démêler le vrai du faux ?">
+<meta name="twitter:image" content="https://curiosaboutique.fr/quiz/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<!-- JSON-LD : Quiz + WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Échos du Passé",
+      "url": "https://curiosaboutique.fr/quiz/",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "Quiz",
+      "name": "Mythe ou Réalité ? Le Quiz des Idées Reçues de l'Histoire",
+      "description": "Quiz interactif gratuit : démêle le vrai du faux parmi les grandes idées reçues de l'Histoire (10 questions par partie). Score final et résultat partageable.",
+      "educationalLevel": "grand public",
+      "inLanguage": "fr-FR",
+      "url": "https://curiosaboutique.fr/quiz/",
+      "about": { "@type": "Thing", "name": "Histoire et mystères" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="bg-grain" aria-hidden="true"></div>
+
+<main class="wrap">
+
+  <!-- ============ ÉCRAN ACCUEIL ============ -->
+  <section id="screen-intro" class="screen screen--active card">
+    <p class="brandline">ÉCHOS DU PASSÉ · HISTOIRE &amp; MYSTÈRES</p>
+    <h1 class="title">Mythe <span class="amp">ou</span> Réalité&nbsp;?</h1>
+    <p class="subtitle">Le quiz des grandes idées reçues de l'Histoire.</p>
+    <p class="intro-text">
+      Vikings à cornes, Napoléon nain, pyramides bâties par des esclaves…
+      Combien de ces «&nbsp;évidences&nbsp;» sont en réalité des <strong>mythes&nbsp;?</strong>
+      10 affirmations te seront proposées. À toi de trancher&nbsp;:
+      <em>réalité historique</em> ou <em>idée reçue</em>.
+    </p>
+    <button id="btn-start" class="btn btn--primary btn--big">Commencer le quiz</button>
+    <p class="meta-line">10 questions · ~3 minutes · 100&nbsp;% gratuit</p>
+    <p class="already-sub">Déjà fan d'Histoire&nbsp;?
+      <a href="https://www.youtube.com/channel/UCtI77IJDeqX1GXrZNkGJtaQ?sub_confirmation=1" target="_blank" rel="noopener">S'abonner à Échos du Passé →</a>
+    </p>
+  </section>
+
+  <!-- ============ ÉCRAN QUIZ ============ -->
+  <section id="screen-quiz" class="screen card">
+    <div class="quiz-top">
+      <span id="q-counter" class="counter">Question 1 / 10</span>
+      <span id="q-score" class="score-mini">0 pt</span>
+    </div>
+    <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+
+    <p class="prompt-label">Réalité historique, ou mythe&nbsp;?</p>
+    <h2 id="q-statement" class="statement">…</h2>
+
+    <div id="answers" class="answers">
+      <button class="btn btn--answer" data-choice="true">
+        <span class="ans-icon">✓</span> Réalité
+      </button>
+      <button class="btn btn--answer" data-choice="false">
+        <span class="ans-icon">✕</span> Mythe
+      </button>
+    </div>
+
+    <div id="reveal" class="reveal" hidden>
+      <p id="reveal-verdict" class="reveal-verdict"></p>
+      <p id="reveal-text" class="reveal-text"></p>
+      <p id="reveal-src" class="reveal-src"></p>
+      <button id="btn-next" class="btn btn--primary">Question suivante →</button>
+    </div>
+  </section>
+
+  <!-- ============ ÉCRAN RÉSULTAT ============ -->
+  <section id="screen-result" class="screen card">
+    <p class="brandline">TON RÉSULTAT</p>
+    <div class="score-ring">
+      <span id="res-score" class="res-score">0</span>
+      <span class="res-total">/ 10</span>
+    </div>
+    <h2 id="res-rank" class="res-rank">…</h2>
+    <p id="res-msg" class="res-msg">…</p>
+
+    <div class="share-block">
+      <button id="btn-share" class="btn btn--primary btn--big">Partager mon score</button>
+      <button id="btn-download" class="btn btn--ghost">Télécharger l'image</button>
+      <button id="btn-replay" class="btn btn--ghost">Rejouer (nouvelles questions)</button>
+    </div>
+    <canvas id="share-canvas" width="1080" height="1080" hidden></canvas>
+
+    <!-- ===== FUNNEL : abonnement chaîne ===== -->
+    <div class="cta-sub">
+      <h3>Tu aimes démêler le vrai du faux&nbsp;?</h3>
+      <p>Chaque semaine, <strong>Échos du Passé</strong> exhume une énigme ou un mythe de l'Histoire.
+         Abonne-toi pour ne rien rater.</p>
+      <a id="cta-youtube" class="btn btn--yt" href="https://www.youtube.com/channel/UCtI77IJDeqX1GXrZNkGJtaQ?sub_confirmation=1" target="_blank" rel="noopener">
+        ▶ S'abonner à Échos du Passé
+      </a>
+    </div>
+
+    <!-- ===== FUNNEL : rebond vers la boutique Curiosa (même univers histoire/insolite) ===== -->
+    <div class="cta-ia">
+      <h3>Tu aimes quand un objet raconte une époque&nbsp;?</h3>
+      <p>Curiosa, c'est le cabinet de curiosités d'Échos du Passé&nbsp;: pièces insolites, objets d'exception et cadeaux qui ont une histoire.</p>
+      <a class="btn btn--ghost" href="https://curiosaboutique.fr/" rel="noopener">
+        Explorer la boutique Curiosa →
+      </a>
+    </div>
+
+    <!-- ===== FUNNEL : capture email (Web3Forms) ===== -->
+    <div class="cta-mail">
+      <h3>Reçois le prochain quiz en avant-première</h3>
+      <p>Un nouveau quiz historique arrive bientôt. Laisse ton e-mail, on te préviendra (zéro spam).</p>
+      <form id="mail-form" class="mail-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+        <input type="hidden" name="subject" value="Mythe ou Réalité — nouveau lead">
+        <input type="hidden" name="from_name" value="Mythe ou Réalité">
+        <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+        <input id="mail-input" type="email" name="email" inputmode="email" autocomplete="email" placeholder="ton@email.fr" aria-label="Ton adresse e-mail" required>
+        <button type="submit" class="btn btn--primary">Je veux le prochain quiz</button>
+        <p class="rgpd-note">Pas de spam. Désinscription en 1 clic. Tes données servent uniquement à t'envoyer les prochains quiz — pas de revente. <a href="mailto:apprentissage.feynman@gmail.com">Droit de suppression</a>.</p>
+      </form>
+      <p id="mail-feedback" class="mail-feedback" hidden>Merci ! Tu es sur la liste.<br>
+        <a href="guides/top-10-idees-recues-histoire.html" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-weight:600;">
+          📖 Accède au guide maintenant →
+        </a>
+      </p>
+    </div>
+
+    <!-- ===== OFFRE PRODUIT : Les Plus Grands Mystères de l'Histoire ===== -->
+    <div class="cta-gumroad">
+      <span class="cta-badge">POUR ALLER ENCORE PLUS LOIN</span>
+      <h3>Les Plus Grands Mystères de l'Histoire</h3>
+      <p class="cta-desc">10 énigmes réelles décortiquées&nbsp;: faits historiques vérifiés face aux hypothèses. Le prolongement naturel de ce quiz pour les passionnés d'Histoire.</p>
+      <span class="cta-price">9,90&nbsp;€</span>
+      <a class="btn btn--primary btn--big" href="https://boutiquefred.gumroad.com/l/mysteres-histoire" target="_blank" rel="noopener">
+        Obtenir le guide →
+      </a>
+      <span class="cta-guarantee">Accès immédiat · Paiement sécurisé · Satisfait ou remboursé 30 jours</span>
+    </div>
+  </section>
+
+  <!-- ===== Emplacement publicitaire (AdSense — à activer après validation du compte) ===== -->
+  <!--
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  -->
+
+  <!-- ===== Section ressources (prête pour affiliation — liens à taguer plus tard) ===== -->
+  <section class="resources">
+    <h3>Pour aller plus loin</h3>
+    <p class="resources-note">Quelques lectures de référence sur les idées reçues de l'Histoire
+       (liens partenaires à venir) :</p>
+    <ul class="resources-list">
+      <!-- data-aff : emplacement pour le tag d'affiliation (Amazon Partenaires, etc.) -->
+      <li data-aff="book-mythes-histoire-france">« Les Mythes de l'Histoire de France » — décrypte 100 idées reçues bien ancrées.</li>
+      <li data-aff="book-mensonges-histoire">« Les Grands Mythes &amp; Mensonges de l'Histoire » — du Moyen Âge à nos jours.</li>
+      <li data-aff="book-bizarre-histoire">« L'Histoire bizarre &amp; insolite » — anecdotes vraies qui semblent fausses.</li>
+    </ul>
+  </section>
+
+  <footer class="foot">
+    <p>Conçu par <strong>Échos du Passé</strong> · Histoire &amp; Mystères.
+       Faits vérifiés à partir de sources de référence (Wikipédia, Britannica, Tour Eiffel officiel,
+       NASA, musées). Quiz à but de divertissement et de culture générale.</p>
+  </footer>
+
+</main>
+
+<script src="app.js"></script>
+<!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
+</body>
+</html>
