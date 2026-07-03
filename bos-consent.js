@@ -61,10 +61,17 @@
       if (other && other.offsetParent !== null) offset += other.offsetHeight;
     } catch (e) {}
     /* BOS 03/07/2026 : ne jamais recouvrir le CTA sticky mobile (Phase 0 conversion) — la bannière
-       s'empile au-dessus si la barre existe et est visible ; no-op sur les pages sans cette barre. */
+       s'empile AU-DESSUS si la barre existe et est visible ; no-op sur les pages sans cette barre.
+       ⚠️ Un élément position:fixed a offsetParent === null : on teste donc display/visibility/hauteur,
+       PAS offsetParent (bug corrigé 03/07 : sinon l'offset n'était jamais appliqué). */
     try {
       var stickyCta = document.querySelector('.sticky-cta-mobile');
-      if (stickyCta && stickyCta.offsetParent !== null) offset += stickyCta.offsetHeight;
+      if (stickyCta) {
+        var scs = window.getComputedStyle(stickyCta);
+        if (scs.display !== 'none' && scs.visibility !== 'hidden' && stickyCta.offsetHeight > 0) {
+          offset += stickyCta.offsetHeight;
+        }
+      }
     } catch (e) {}
     var el = document.createElement('div');
     el.id = 'bos-consent-banner';
