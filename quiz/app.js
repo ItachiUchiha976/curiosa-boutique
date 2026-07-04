@@ -320,15 +320,25 @@ async function handleMail(e){
     if(res.ok){
       form.hidden = true;
       $('#mail-feedback').hidden = false;
+      const errEl = $('#mail-error');
+      if(errEl) errEl.hidden = true;
     }else{
       throw new Error('submit failed');
     }
   }catch(err){
     if(btn){ btn.disabled = false; btn.textContent = oldLabel; }
-    const fb = $('#mail-feedback');
-    fb.textContent = "Oups, un souci réseau. Réessaie dans un instant.";
-    fb.style.color = 'var(--red)';
-    fb.hidden = false;
+    // BOS 04/07/2026 : ne plus écraser #mail-feedback (message de succès + lien guide) —
+    // l'erreur réseau utilise son propre élément, injecté puis retiré au prochain essai.
+    let errEl = $('#mail-error');
+    if(!errEl){
+      errEl = document.createElement('p');
+      errEl.id = 'mail-error';
+      errEl.className = 'mail-feedback';
+      errEl.style.color = 'var(--red)';
+      form.insertAdjacentElement('afterend', errEl);
+    }
+    errEl.textContent = "Oups, un souci réseau. Réessaie dans un instant.";
+    errEl.hidden = false;
   }
 }
 

@@ -178,7 +178,7 @@ function initCartPage() {
             <button data-id="${item.id}" data-action="inc">+</button>
           </div>
         </td>
-        <td class="cart-item-price">${(item.price * item.qty).toFixed(2)} €</td>
+        <td class="cart-item-price">${(item.price * item.qty).toFixed(2).replace('.', ',')} €</td>
         <td><button class="cart-remove" data-id="${item.id}" aria-label="Retirer">&#x2715;</button></td>
       </tr>`).join('');
 
@@ -190,7 +190,7 @@ function initCartPage() {
         </table>
       </div>
       <div class="cart-total">
-        <h3>Total : ${total.toFixed(2)} €</h3>
+        <h3>Total : ${total.toFixed(2).replace('.', ',')} €</h3>
         <div class="checkout-stub">
           ${hasFullCarnet ? '' : `
           <div class="order-bump">

@@ -153,8 +153,11 @@
 
 <main>
   <div class="container">
-    <div class="product-detail">
-      <div>
+    <!-- BOS 04/07/2026 : modificateur --reorder scopé à CETTE page uniquement (styles.css) —
+         sur mobile, l'ordre visuel devient photo principale → info/CTA → galerie secondaire,
+         sans toucher au .product-detail des 5 autres fiches produit. -->
+    <div class="product-detail product-detail--reorder">
+      <div class="product-detail__media-primary">
         <div class="product-detail__gallery">
           <img src="img/moon-real.jpg"
                alt="Lampe lune 3D en lévitation magnétique — cabinet de curiosités Curiosa" loading="eager">
@@ -163,8 +166,10 @@
         <div style="margin-top:1rem;padding:1rem;background:var(--parch2);border-radius:var(--radius);font-size:.82rem;color:var(--text3)">
           Photo du produit réel. Légères variations de teinte possibles selon la lumière ambiante.
         </div>
+      </div>
+      <div class="product-detail__media-secondary">
         <!-- BOS — vidéo démo muette en boucle (03/07/2026) : construite à partir de la vraie photo moon-real.jpg (Ken Burns + textes FR), 0 image générée, 0 trucage couleur -->
-        <video src="img/moon-demo.mp4" poster="img/moon-real.jpg" autoplay muted loop playsinline preload="metadata" style="margin-top:.75rem;width:100%;max-width:100%;display:block;border-radius:var(--r-lg)" aria-label="Démonstration muette de la Lampe Lune en Lévitation Magnétique">
+        <video src="img/moon-demo.mp4" poster="img/moon-real.jpg" autoplay muted loop playsinline preload="metadata" style="width:100%;max-width:100%;display:block;border-radius:var(--r-lg)" aria-label="Démonstration muette de la Lampe Lune en Lévitation Magnétique">
           Votre navigateur ne peut pas lire cette vidéo. Voici la <a href="img/moon-real.jpg">photo du produit</a>.
         </video>
         <img src="img/moon-ambiance.jpg" alt="Lampe lune allumée en teinte chaude, posée sur une table près d'une tête de lit sculptée en bois, ambiance cocooning" loading="lazy" style="margin-top:.75rem;width:100%;display:block;border-radius:var(--r-lg)">
@@ -323,26 +328,26 @@
       <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
         <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.3rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:1.5rem;margin-bottom:.45rem">&#8617;&#65039;</div>
-          <strong style="display:block;color:var(--text);margin-bottom:.3rem">Satisfait ou rembourse 30 jours</strong>
+          <strong style="display:block;color:var(--text);margin-bottom:.3rem">Satisfait ou remboursé 30 jours</strong>
           <span style="font-size:.88rem;color:var(--text2);line-height:1.55">La lune ne vous convainc pas ? Renvoyez-la sous 30 jours et on vous rembourse.</span>
         </div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.3rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:1.5rem;margin-bottom:.45rem">&#128274;</div>
-          <strong style="display:block;color:var(--text);margin-bottom:.3rem">Paiement 100% securise</strong>
-          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Reglement via PayPal : vos coordonnees bancaires ne nous sont jamais transmises.</span>
+          <strong style="display:block;color:var(--text);margin-bottom:.3rem">Paiement 100&nbsp;% sécurisé</strong>
+          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Règlement via PayPal : vos coordonnées bancaires ne nous sont jamais transmises.</span>
         </div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.3rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:1.5rem;margin-bottom:.45rem">&#128230;</div>
           <strong style="display:block;color:var(--text);margin-bottom:.3rem">Livraison suivie</strong>
-          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Expedition internationale avec numero de suivi, estimee 12 a 20 jours ouvres.</span>
+          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Expédition internationale avec numéro de suivi, estimée 12 à 20 jours ouvrés.</span>
         </div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.3rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:1.5rem;margin-bottom:.45rem">&#127769;</div>
           <strong style="display:block;color:var(--text);margin-bottom:.3rem">Exactement la photo</strong>
-          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Les visuels sont ceux du produit reel que vous recevez, sans retouche trompeuse.</span>
+          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Les visuels sont ceux du produit réel que vous recevez, sans retouche trompeuse.</span>
         </div>
       </div>
-      <p style="font-size:.85rem;color:var(--text3);text-align:center;margin-top:1.4rem">Nouveaute dans notre cabinet &mdash; soyez parmi les premiers a l'adopter.</p>
+      <p style="font-size:.85rem;color:var(--text3);text-align:center;margin-top:1.4rem">Nouveauté dans notre cabinet &mdash; soyez parmi les premiers à l'adopter.</p>
     </div>
   </div>
 
@@ -522,7 +527,7 @@
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
         "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" },
-        "transitTime": { "@type": "QuantitativeValue", "minValue": 12, "maxValue": 20, "unitCode": "DAY" }
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 17, "maxValue": 28, "unitCode": "DAY" }
       }
     },
     "hasMerchantReturnPolicy": {

@@ -135,7 +135,7 @@ button { cursor: pointer; font-family: inherit; }
   height: 100dvh;
   background: var(--sepia);
   border-left: 2px solid var(--border);
-  z-index: 200;
+  z-index: 500;
   padding: 4rem 2rem 2rem;
   display: flex; flex-direction: column; gap: 1.25rem;
   transition: right .3s ease;
@@ -422,6 +422,26 @@ button { cursor: pointer; font-family: inherit; }
 }
 @media(min-width:768px){
   .product-detail { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+/* BOS 04/07/2026 — modificateur scopé à la fiche flagship (Lune en Lévitation) UNIQUEMENT :
+   sur mobile, priorité à l'offre (photo → titre/bullets/prix/CTA) avant la galerie secondaire
+   (vidéo + 4 photos). Les 5 autres fiches produit gardent .product-detail par défaut, inchangé. */
+.product-detail--reorder {
+  grid-template-areas:
+    "primary"
+    "info"
+    "secondary";
+}
+.product-detail--reorder .product-detail__media-primary { grid-area: primary; }
+.product-detail--reorder .product-detail__media-secondary { grid-area: secondary; margin-top: 0; }
+.product-detail--reorder .product-detail__info { grid-area: info; }
+@media(min-width:768px){
+  .product-detail--reorder {
+    grid-template-areas:
+      "primary info"
+      "secondary info";
+  }
 }
 .product-detail__gallery {
   position: relative;
@@ -873,7 +893,7 @@ button { cursor: pointer; font-family: inherit; }
 .overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,.5);
-  z-index: 150;
+  z-index: 450;
   display: none;
 }
 .overlay.show { display: block; }
