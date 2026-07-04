@@ -180,7 +180,7 @@
         <button class="btn-addcart" id="bos-buy-mysteres" data-price="9.90">Obtenir l'ebook — 9,90 €</button>
         <div class="delivery-note">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Paiement sécurisé PayPal (carte bancaire acceptée) · PDF envoyé instantanément
+          🔒 Paiement sécurisé PayPal ou carte bancaire — aucun compte requis · PDF envoyé instantanément
         </div>
         <a href="../quiz/" class="myst-crosslink">Envie de te tester d'abord ? Le quiz gratuit Mythe ou Réalité (3 min) →</a>
       </div>
@@ -369,6 +369,25 @@
   </div>
 </section>
 
+<!-- Email capture — pas encore décidé(e) -->
+<section class="capture">
+  <div class="container">
+    <h2>Pas encore décidé(e) ?</h2>
+    <p>Reçois un extrait gratuit de l'ebook + nos conseils sur les plus grands mystères de l'Histoire, par email.</p>
+    <form class="capture-form w3-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+      <input type="hidden" name="subject" value="Curiosa — lead gratuit (ebook Mystères de l'Histoire)">
+      <input type="hidden" name="from_name" value="Curiosa">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
+      <button type="submit" class="btn-primary" style="white-space:nowrap">Recevoir l'extrait gratuit →</button>
+      <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="../cgv.html#rgpd">RGPD</a>).</label>
+    </form>
+    <p class="w3-msg capture-msg">Merci ! Tu vas recevoir l'extrait gratuit par email très vite.</p>
+    <p style="font-size:.78rem;color:var(--text3);margin-top:.75rem">Pas de spam. Désinscription en 1 clic.</p>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="container" style="max-width:820px">
@@ -424,7 +443,7 @@
       <h2>Prêt(e) à plonger dans les mystères ?</h2>
       <p>Téléchargement immédiat · PDF lisible sur tous les appareils · <strong>9,90 €</strong></p>
       <button class="btn-primary" id="bos-buy-mysteres-2" data-price="9.90" style="border:none;cursor:pointer;font-size:1.05rem;padding:1rem 2.25rem">Obtenir l'ebook — 9,90 €</button>
-      <p class="myst-guarantee-note">Paiement sécurisé PayPal · Garantie satisfait ou remboursé 30 jours (voir FAQ) · Aucune livraison à attendre.</p>
+      <p class="myst-guarantee-note">🔒 Paiement sécurisé PayPal ou carte bancaire — aucun compte requis · Garantie satisfait ou remboursé 30 jours (voir FAQ) · Aucune livraison à attendre.</p>
       <p class="prod-cta__alt">Envie d'Histoire en attendant ? <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener">Abonne-toi à Échos du Passé ↗</a></p>
     </div>
   </div>
