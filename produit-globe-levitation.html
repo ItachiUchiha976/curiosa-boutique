@@ -197,7 +197,25 @@
         <div class="product-detail__price">
           <span class="price-main">59 €</span>
         </div>
-        <div class="product-features">
+
+        <!-- BOS 06/07/2026 — Phase 0 conversion : CTA remonté juste après le prix (avant la
+             liste détaillée des caractéristiques) pour raccourcir la distance hook→achat sur
+             mobile. Le pavé de 5 caractéristiques techniques est repoussé après la réassurance
+             (voir plus bas) — rien n'est supprimé, juste réordonné. -->
+        <button class="btn-addcart" data-add-cart data-id="lune-levitation-001" data-name="Lune en Lévitation Magnétique" data-price="59">Ajouter au panier — 59 €</button>
+        <a href="panier.html" class="btn-secondary-full">Voir mon panier</a>
+
+        <div class="delivery-note" style="margin-top:1.25rem">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span class="bos-delivery-window">Livraison estimée 12 à 20 jours ouvrés</span> · Retours 30 jours
+        </div>
+        <ul class="bos-reassurance-list">
+          <li>🔒 Paiement sécurisé PayPal ou carte bancaire — aucun compte requis</li>
+          <li>✔ Satisfait ou remboursé 30 jours</li>
+          <li>✔ Livraison suivie — numéro fourni à l'expédition</li>
+        </ul>
+
+        <div class="product-features" style="margin-top:1.5rem">
           <div class="product-feature">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
             Luminosité réglable + minuterie d'extinction automatique
@@ -219,20 +237,6 @@
             Idéal en cadeau — anniversaire, bureau, fête, décoration
           </div>
         </div>
-
-        <!-- CTA principal : commande -->
-        <button class="btn-addcart" data-add-cart data-id="lune-levitation-001" data-name="Lune en Lévitation Magnétique" data-price="59">Ajouter au panier — 59 €</button>
-        <a href="panier.html" class="btn-secondary-full">Voir mon panier</a>
-
-        <div class="delivery-note" style="margin-top:1.25rem">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          <span class="bos-delivery-window">Livraison estimée 12 à 20 jours ouvrés</span> · Retours 30 jours
-        </div>
-        <ul class="bos-reassurance-list">
-          <li>🔒 Paiement sécurisé PayPal ou carte bancaire — aucun compte requis</li>
-          <li>✔ Satisfait ou remboursé 30 jours</li>
-          <li>✔ Livraison suivie — numéro fourni à l'expédition</li>
-        </ul>
 
         <!-- Upsell Storm Glass -->
         <div style="margin-top:1.5rem;padding:1rem;background:rgba(200,150,12,.07);border-radius:var(--radius);border:1px solid var(--border)">
