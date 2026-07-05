@@ -92,6 +92,8 @@ button { cursor: pointer; font-family: inherit; }
   transition: color .2s;
 }
 .nav-link:hover, .nav-link.active { color: var(--gold); text-decoration: none; }
+.nav-link--secondary { opacity: .7; font-size: .82rem; }
+.nav-link--secondary:hover { opacity: 1; }
 
 .header-actions { display: flex; align-items: center; gap: .75rem; }
 .cart-btn {
