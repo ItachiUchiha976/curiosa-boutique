@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Comment fonctionne la lévitation magnétique ? Le guide de la Lampe Lune | Curiosa</title>
+<meta name="description" content="Électroaimant, capteur, stabilisation active : comment une lampe lune tient-elle vraiment en lévitation ? Guide pédagogique simple + FAQ, illustré par la Lampe Lune en Lévitation Magnétique (59 €) du Cabinet Curiosa.">
+<link rel="canonical" href="https://curiosaboutique.fr/lampe-lune-levitation-guide/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Comment fonctionne la lévitation magnétique ?">
+<meta property="og:description" content="Électroaimant, capteur, stabilisation active — la vraie physique derrière la Lampe Lune en Lévitation, expliquée simplement.">
+<meta property="og:image" content="https://curiosaboutique.fr/img/moon-real.jpg">
+<meta property="og:url" content="https://curiosaboutique.fr/lampe-lune-levitation-guide/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Comment fonctionne la lévitation magnétique ?">
+<meta name="twitter:description" content="Électroaimant, capteur, stabilisation active — la vraie physique derrière la Lampe Lune en Lévitation.">
+<meta name="twitter:image" content="https://curiosaboutique.fr/img/moon-real.jpg">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ── Page /lampe-lune-levitation-guide/ — styles scopés, n'affectent aucune autre page ── */
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.25rem; counter-reset: step; }
+  .step-card {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg);
+    padding: 1.5rem; position: relative;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.1rem; height: 2.1rem; border-radius: 50%;
+    background: var(--gold); color: var(--ink); font-weight: 700; font-family: var(--font-serif);
+    margin-bottom: .85rem;
+  }
+  .step-card h3 { font-family: var(--font-serif); font-size: 1.08rem; color: var(--text); margin-bottom: .4rem; }
+  .step-card p { font-size: .9rem; color: var(--text2); line-height: 1.6; }
+
+  .physics-callout {
+    background: #EBF3FA; color: #14263a; border-left: 4px solid #1A3A5C;
+    border-radius: var(--r-lg); padding: 1.35rem 1.5rem; font-size: .95rem; line-height: 1.7;
+    max-width: 780px; margin: 0 auto;
+  }
+  .physics-callout strong { color: #0b1826; }
+
+  .safety-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 1.25rem; }
+  .safety-card {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg);
+    padding: 1.25rem 1.4rem; font-size: .9rem; color: var(--text2); line-height: 1.6;
+  }
+  .safety-card strong { display: block; color: var(--text); margin-bottom: .35rem; font-family: var(--font-serif); font-size: 1.02rem; }
+
+  .myst-crosslink {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .85rem; color: var(--gold-lt); margin-top: 1.1rem;
+    border: 1px solid rgba(200,150,12,.35); border-radius: 999px; padding: .45rem 1rem;
+  }
+  .myst-crosslink:hover { text-decoration: none; border-color: var(--gold); color: var(--gold); }
+
+  .guide-video { width: 100%; max-width: 480px; margin: 0 auto; display: block; border-radius: var(--r-lg); border: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="topbar">Livraison offerte — Livraison estimée 12 à 20 jours ouvrés &nbsp;·&nbsp; <a href="../livraison.html">Détails livraison</a></div>
+
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="../index.html" class="logo">Curio<em>sa</em></a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Accueil</a></li>
+          <li><a href="../produit-globe-levitation.html" class="nav-link">Lune en Lévitation</a></li>
+          <li><a href="../produit-boite-enigme.html" class="nav-link">Boîte-Énigme</a></li>
+          <li><a href="../produit-sablier.html" class="nav-link">Sablier</a></li>
+          <li><a href="index.html" class="nav-link active">Guide Lévitation</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="../panier.html" class="cart-btn" aria-label="Panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-count" style="display:none">0</span>
+        </a>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" aria-label="Menu mobile">
+  <button class="mobile-menu__close" aria-label="Fermer">&#x2715;</button>
+  <a href="../index.html">Accueil</a>
+  <a href="../produit-globe-levitation.html">Lune en Lévitation Magnétique</a>
+  <a href="../produit-boite-enigme.html">Boîte-Énigme</a>
+  <a href="../produit-sablier.html">Sablier Rétro Métal</a>
+  <a href="index.html">Guide de la lévitation magnétique</a>
+  <a href="../idees-cadeaux-insolites/">12 Idées Cadeaux Insolites</a>
+  <a href="../quiz/">Quiz Mythe ou Réalité</a>
+  <a href="../mysteres/">Ebook Mystères</a>
+  <a href="../a-propos.html">À propos</a>
+  <a href="../cgv.html">CGV &amp; Mentions légales</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumb"><a href="../index.html">Accueil</a> <span>/</span> <a href="../produit-globe-levitation.html">Lune en Lévitation</a> <span>/</span> <span>Guide lévitation magnétique</span></nav>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <h1>Comment fonctionne vraiment une lampe lune en lévitation ?</h1>
+    <p>Ce n'est pas un tour de magie : c'est de l'électromagnétisme bien réel. Voici comment le socle fait flotter la sphère, expliqué simplement.</p>
+  </div>
+</div>
+
+<!-- Vidéo + intro -->
+<section class="section" style="padding-bottom:2rem">
+  <div class="container">
+    <video class="guide-video" src="../img/moon-demo.mp4" poster="../img/moon-real.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Démonstration muette de la lévitation magnétique de la Lampe Lune Curiosa">
+      Votre navigateur ne peut pas lire cette vidéo. Voici la <a href="../img/moon-real.jpg">photo du produit</a>.
+    </video>
+    <div style="max-width:720px;margin:2rem auto 0;font-size:.98rem;color:var(--text2);line-height:1.8">
+      <p>La première réaction devant une lampe lune en lévitation, c'est presque toujours la même : « comment ça tient ? ». Bonne nouvelle : la réponse est de la vraie physique, pas un secret de fabricant. Ce guide explique le principe pas à pas, pour que la magie apparente devienne un truc qu'on comprend — et qui reste tout aussi impressionnant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Le principe en une phrase -->
+<section class="section section--parch" style="padding-top:1.5rem">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem">
+      <div class="section-label">Le principe en une phrase</div>
+      <h2 class="section-title">Un aimant piloté en continu, pas un aimant posé</h2>
+    </div>
+    <div class="physics-callout">
+      La sphère contient un <strong>aimant permanent</strong>. Le socle contient un <strong>électroaimant</strong> relié à un <strong>capteur</strong> qui mesure la distance en continu et à un petit circuit qui ajuste le courant des centaines de fois par seconde. Résultat : la sphère reste suspendue à 1-2 cm au-dessus du socle, sans jamais toucher, sans support visible, sans pile à l'intérieur.
+    </div>
+  </div>
+</section>
+
+<!-- Étape par étape -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Étape par étape</div>
+      <h2 class="section-title">Les 4 éléments qui font tenir la Lune en l'air</h2>
+      <p class="section-sub">Rien de tout ça n'est visible une fois l'objet assemblé — tout se passe dans le socle en bois.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Un électroaimant dans le socle</h3>
+        <p>Une bobine électrique, alimentée par le câble USB, génère un champ magnétique. C'est la seule pièce du système reliée à l'alimentation.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Un aimant permanent dans la sphère</h3>
+        <p>La lune elle-même intègre un petit aimant fixe. Aucune pile, aucun câblage dans la sphère : elle est passive, seul le socle « travaille ».</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Un capteur qui surveille la distance</h3>
+        <p>Un capteur de position, logé dans le socle, mesure en continu où se trouve exactement l'aimant de la sphère — plusieurs centaines de fois par seconde.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Un circuit qui corrige en temps réel</h3>
+        <p>Dès que la sphère dérive d'une fraction de millimètre, le circuit ajuste aussitôt le courant de l'électroaimant pour la ramener à sa position stable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pourquoi un aimant seul ne suffit pas -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem">
+      <div class="section-label" style="color:var(--gold)">La question qu'on nous pose souvent</div>
+      <h2 class="section-title" style="color:var(--parch)">Pourquoi un simple aimant ne suffit pas ?</h2>
+    </div>
+    <div style="max-width:720px;margin:0 auto;font-size:.98rem;color:var(--parch3);line-height:1.8">
+      <p style="margin-bottom:1rem">C'est une question de physique connue depuis le XIX<sup>e</sup> siècle : deux aimants statiques ne peuvent pas se maintenir en équilibre stable l'un au-dessus de l'autre. Si on essaie, la sphère glisse toujours d'un côté puis se colle ou retombe — elle ne « choisit » jamais de rester parfaitement centrée toute seule.</p>
+      <p>C'est exactement pour ça que ces lampes utilisent un <strong style="color:var(--gold-lt)">système actif</strong> : le capteur et le circuit du socle corrigent en permanence les micro-déséquilibres, des centaines de fois par seconde, trop vite pour que l'œil le perçoive. Ce qu'on voit comme une lévitation « magique » et parfaitement immobile est en réalité une stabilisation électronique ultra-rapide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Et la rotation -->
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:1.5rem">
+      <div class="section-label">Effet bonus</div>
+      <h2 class="section-title">Et la rotation, comment ça marche ?</h2>
+    </div>
+    <div style="max-width:720px;margin:0 auto;font-size:.98rem;color:var(--text2);line-height:1.8;text-align:center">
+      <p>La rotation lente et silencieuse de la sphère est produite par ce même système électromagnétique du socle — pas par un moteur séparé. On peut aussi la faire pivoter doucement à la main sans risque, elle reprend sa position stable toute seule.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Avant d'installer -->
+<section class="section section--parch">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Avant d'en installer une chez soi</div>
+      <h2 class="section-title">4 choses à savoir pour une utilisation sereine</h2>
+    </div>
+    <div class="safety-grid">
+      <div class="safety-card">
+        <strong>Un socle, une sphère</strong>
+        Chaque socle est calibré précisément pour la sphère fournie (poids et aimant intégrés). Il n'est pas conçu pour faire léviter un autre objet à sa place.
+      </div>
+      <div class="safety-card">
+        <strong>Une surface stable et plane</strong>
+        Le socle doit être posé bien à plat, loin du bord d'une table, pour que le capteur travaille dans de bonnes conditions.
+      </div>
+      <div class="safety-card">
+        <strong>Pas besoin de recalibrer</strong>
+        Le système se stabilise seul. Si la sphère tombe (coupure de courant, choc), il suffit de la replacer doucement au centre du socle allumé.
+      </div>
+      <div class="safety-card">
+        <strong>Aucune allégation santé</strong>
+        C'est un objet décoratif, pas un dispositif médical : le champ magnétique utilisé sert uniquement à la lévitation, sans vertu thérapeutique associée.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label">Questions fréquentes</div>
+      <h2 class="section-title">Sur le fonctionnement de la lévitation</h2>
+    </div>
+    <div class="faq" style="max-width:760px;margin:2rem auto 0">
+      <div class="faq-item">
+        <button class="faq-question">Est-ce dangereux pour la santé, à cause du champ magnétique ?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Le champ magnétique utilisé est de faible intensité, du même ordre que de nombreux objets du quotidien (haut-parleurs, fermetures aimantées). Curiosa ne fait aucune allégation médicale sur ce produit : c'est un objet décoratif, pas un dispositif de santé.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Est-ce que ça consomme beaucoup d'électricité ?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Non. L'alimentation se fait par câble USB basse tension, pour une consommation comparable à une veilleuse LED.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Puis-je faire léviter un autre objet avec le socle ?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Non. Le socle est calibré précisément pour le poids et l'aimant de la sphère fournie — il n'est pas conçu comme une plateforme de lévitation universelle.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Faut-il recalibrer le système régulièrement ?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Non, la stabilisation est automatique et permanente. Si la sphère tombe (coupure de courant, choc), il suffit de la reposer doucement au centre du socle, allumé.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Est-ce que ça fonctionne près d'objets métalliques ou d'autres aimants ?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Mieux vaut éviter de poser d'autres objets aimantés ou fortement métalliques juste à côté du socle, car ils peuvent perturber le capteur qui régule la lévitation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Où trouver la Lampe Lune en Lévitation décrite dans ce guide ?
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">Sur la fiche produit du Cabinet Curiosa : 16 couleurs LED, luminosité réglable, télécommande incluse, 59 €, livraison estimée 12 à 20 jours ouvrés, retours 30 jours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA finale -->
+<section class="section section--dark">
+  <div class="container text-center">
+    <div class="section-label" style="color:var(--gold)">Voir le résultat</div>
+    <h2 class="section-title" style="color:var(--parch)">Toute cette physique, posée sur un bureau</h2>
+    <p class="section-sub" style="color:var(--parch3)">La Lampe Lune en Lévitation Magnétique du Cabinet Curiosa applique exactement le principe décrit ci-dessus.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:.5rem">
+      <a href="../produit-globe-levitation.html" class="btn-primary">Voir la fiche produit — 59 €</a>
+      <a href="../idees-cadeaux-insolites/" class="btn-outline">12 idées cadeaux insolites</a>
+    </div>
+    <p style="margin-top:1.5rem"><a href="../mysteres/" class="myst-crosslink">Envie d'autres mystères, historiques cette fois ? L'ebook Les Plus Grands Mystères de l'Histoire →</a></p>
+  </div>
+</section>
+
+<!-- Email capture -->
+<section class="capture">
+  <div class="container">
+    <h2>Reste informé(e) des nouveautés du Cabinet</h2>
+    <p>Inscris-toi à la newsletter pour recevoir les nouvelles pièces du Cabinet en avant-première.</p>
+    <form class="capture-form w3-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d97a8c73-b827-48bb-b437-e053a73fdb7e">
+      <input type="hidden" name="subject" value="Curiosa inscription newsletter">
+      <input type="hidden" name="from_name" value="Curiosa">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
+      <button type="submit" class="btn-primary" style="white-space:nowrap">Je m'inscris à la newsletter</button>
+      <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="../cgv.html#rgpd">RGPD</a>).</label>
+    </form>
+    <p class="w3-msg capture-msg">Merci ! Tu es inscrit(e) à la newsletter du Cabinet. À très vite !</p>
+    <p style="font-size:.78rem;color:var(--text3);margin-top:.75rem">Pas de spam. Désinscription en 1 clic. Aucune donnée partagée.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">Curio<em>sa</em></a>
+        <p>Cabinet de Curiosités en ligne — objets et contenus chargés d'Histoire pour passionnés et amateurs de cadeaux originaux.</p>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@echosdupassefr" target="_blank" rel="noopener" title="YouTube Échos du Passé">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Le Cabinet</h4>
+        <a href="../produit-globe-levitation.html">Lune en Lévitation Magnétique</a>
+        <a href="../produit-boite-enigme.html">Boîte-Énigme</a>
+        <a href="../produit-sablier.html">Sablier Rétro</a>
+        <a href="../produit-carte.html">Carte du Monde Vintage</a>
+        <a href="../produit-carnet.html">Carnet Parchemin</a>
+        <a href="../produit-statuette.html">Statuette Antique</a>
+      </div>
+      <div class="footer-col">
+        <h4>Découvrir</h4>
+        <a href="index.html">Guide lévitation magnétique</a>
+        <a href="../idees-cadeaux-insolites/">12 Idées Cadeaux Insolites</a>
+        <a href="../quiz/">Quiz Mythe ou Réalité</a>
+        <a href="../mysteres/">Ebook Mystères de l'Histoire</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="../a-propos.html">À propos de Curiosa</a>
+        <a href="../livraison.html">Livraison &amp; Retours</a>
+        <a href="../cgv.html">CGV &amp; Mentions légales</a>
+        <a href="../politique-confidentialite.html">Confidentialité</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Curiosa — Cabinet de Curiosités</span>
+      <span><a href="../cgv.html">Mentions légales</a> · <a href="../politique-confidentialite.html">Confidentialité</a> · <a href="../index.html">Accueil</a></span>
+    </div>
+    <p class="footer-disclaimer">Guide rédigé à titre pédagogique pour expliquer le principe de lévitation magnétique active utilisé par notre Lampe Lune. Aucune allégation médicale n'est faite ; le champ magnétique du produit sert uniquement à la lévitation décorative. Livraison estimée 12 à 20 jours ouvrés, retours 30 jours. Statut du vendeur : entreprise individuelle (auto-entrepreneur) — mentions légales complètes sur la page <a href="../cgv.html">CGV</a>.</p>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+
+<!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
+<script src="../bos-consent.js?v=3" defer></script>
+
+<!-- bos-seo-jsonld-start -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://curiosaboutique.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Lune en Lévitation", "item": "https://curiosaboutique.fr/produit-globe-levitation.html" },
+    { "@type": "ListItem", "position": 3, "name": "Guide lévitation magnétique", "item": "https://curiosaboutique.fr/lampe-lune-levitation-guide/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Comment fonctionne vraiment une lampe lune en lévitation ?",
+  "description": "Électroaimant, capteur, stabilisation active : le principe de la lévitation magnétique expliqué simplement, illustré par la Lampe Lune en Lévitation Magnétique du Cabinet Curiosa.",
+  "image": "https://curiosaboutique.fr/img/moon-real.jpg",
+  "author": { "@type": "Organization", "name": "Curiosa" },
+  "publisher": { "@type": "Organization", "name": "Curiosa" },
+  "mainEntityOfPage": "https://curiosaboutique.fr/lampe-lune-levitation-guide/",
+  "inLanguage": "fr-FR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Est-ce dangereux pour la santé, à cause du champ magnétique ?", "acceptedAnswer": { "@type": "Answer", "text": "Le champ magnétique utilisé est de faible intensité, du même ordre que de nombreux objets du quotidien (haut-parleurs, fermetures aimantées). Curiosa ne fait aucune allégation médicale sur ce produit : c'est un objet décoratif, pas un dispositif de santé." } },
+    { "@type": "Question", "name": "Est-ce que ça consomme beaucoup d'électricité ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. L'alimentation se fait par câble USB basse tension, pour une consommation comparable à une veilleuse LED." } },
+    { "@type": "Question", "name": "Puis-je faire léviter un autre objet avec le socle ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Le socle est calibré précisément pour le poids et l'aimant de la sphère fournie — il n'est pas conçu comme une plateforme de lévitation universelle." } },
+    { "@type": "Question", "name": "Faut-il recalibrer le système régulièrement ?", "acceptedAnswer": { "@type": "Answer", "text": "Non, la stabilisation est automatique et permanente. Si la sphère tombe, il suffit de la reposer doucement au centre du socle allumé." } },
+    { "@type": "Question", "name": "Est-ce que ça fonctionne près d'objets métalliques ou d'autres aimants ?", "acceptedAnswer": { "@type": "Answer", "text": "Mieux vaut éviter de poser d'autres objets aimantés ou fortement métalliques juste à côté du socle, car ils peuvent perturber le capteur qui régule la lévitation." } },
+    { "@type": "Question", "name": "Où trouver la Lampe Lune en Lévitation décrite dans ce guide ?", "acceptedAnswer": { "@type": "Answer", "text": "Sur la fiche produit du Cabinet Curiosa : 16 couleurs LED, luminosité réglable, télécommande incluse, 59 euros, livraison estimée 12 à 20 jours ouvrés, retours 30 jours." } }
+  ]
+}
+</script>
+<!-- bos-seo-jsonld-end -->
+
+</body>
+</html>
