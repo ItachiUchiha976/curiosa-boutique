@@ -238,24 +238,26 @@
           </div>
         </div>
 
-      </div></div>
+      </div>
 
-        <div class="thumbnails">
-          <div class="thumbnail active" style="display:inline-block;width:72px;height:72px;margin:4px;border-radius:10px;overflow:hidden;position:relative;">
-            <img src="img/curiosa_globe-levitation_cu_globe_01.jpg" alt="Vue 2" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <!-- Miniatures alignées sur les images de la galerie (0 doublon) -->
+        <div class="thumbnails" style="margin-top:.75rem;display:flex;flex-wrap:wrap;gap:8px">
+          <div class="thumbnail active" style="width:64px;height:64px;border-radius:8px;overflow:hidden;border:2px solid var(--gold);cursor:pointer" onclick="document.getElementById('main-product-img').src='img/moon-real.jpg'">
+            <img src="img/moon-real.jpg" alt="Lampe lune — vue principale" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           </div>
-          <div class="thumbnail" style="display:inline-block;width:72px;height:72px;margin:4px;border-radius:10px;overflow:hidden;position:relative;">
-            <img src="img/curiosa_globe-levitation_cu_globe_02.jpg" alt="Vue 3" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div class="thumbnail" style="width:64px;height:64px;border-radius:8px;overflow:hidden;cursor:pointer;opacity:.7" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='.7'" onclick="document.getElementById('main-product-img').src='img/moon-ambiance.jpg'">
+            <img src="img/moon-ambiance.jpg" alt="Lampe lune — ambiance chaude" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           </div>
-          <div class="thumbnail" style="display:inline-block;width:72px;height:72px;margin:4px;border-radius:10px;overflow:hidden;position:relative;">
-            <img src="img/curiosa_globe-levitation_cu_globe_03.png" alt="Vue 4" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div class="thumbnail" style="width:64px;height:64px;border-radius:8px;overflow:hidden;cursor:pointer;opacity:.7" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='.7'" onclick="document.getElementById('main-product-img').src='img/moon-colors.jpg'">
+            <img src="img/moon-colors.jpg" alt="Lampe lune — 16 couleurs" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           </div>
-          <div class="thumbnail" style="display:inline-block;width:72px;height:72px;margin:4px;border-radius:10px;overflow:hidden;position:relative;">
-            <img src="img/curiosa_globe-levitation_cu_globe_04.png" alt="Vue 5" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div class="thumbnail" style="width:64px;height:64px;border-radius:8px;overflow:hidden;cursor:pointer;opacity:.7" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='.7'" onclick="document.getElementById('main-product-img').src='img/moon-install.jpg'">
+            <img src="img/moon-install.jpg" alt="Lampe lune — installation" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           </div>
-          <div class="thumbnail" style="display:inline-block;width:72px;height:72px;margin:4px;border-radius:10px;overflow:hidden;position:relative;">
-            <img src="img/curiosa_globe-levitation_cu_globe_05.png" alt="Vue 6" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div class="thumbnail" style="width:64px;height:64px;border-radius:8px;overflow:hidden;cursor:pointer;opacity:.7" onmouseenter="this.style.opacity='1'" onmouseleave="this.style.opacity='.7'" onclick="document.getElementById('main-product-img').src='img/moon-lifestyle.jpg'">
+            <img src="img/moon-lifestyle.jpg" alt="Lampe lune — sur bureau" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           </div>
+        </div>
       </div></div>
 
       <!-- Description complète -->
