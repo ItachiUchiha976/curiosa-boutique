@@ -159,7 +159,7 @@
     <div class="product-detail product-detail--reorder">
       <div class="product-detail__media-primary">
         <div class="product-detail__gallery">
-          <img src="img/moon-real.jpg"
+          <img id="main-product-img" src="img/moon-real.jpg"
                alt="Lampe lune 3D en lévitation magnétique — cabinet de curiosités Curiosa" loading="eager">
           <div class="product-detail__badge-img">Pièce phare</div>
         </div>
@@ -565,5 +565,23 @@
 </script>
 <!-- bos-seo-jsonld-end -->
 
+<script>
+// Miniatures cliquables — swap image principale
+(function(){
+  var main = document.querySelector('#main-product-img, .product-main-visual img, [class*="product-visual"] img, .product-gallery img, [class*=gallery] img');
+  var thumbs = document.querySelectorAll('.thumbnail img');
+  if (!main || thumbs.length === 0) return;
+  thumbs.forEach(function(t){
+    t.style.cursor = 'pointer';
+    t.parentElement.addEventListener('click', function(){
+      var tmp = main.src; main.src = t.src; t.src = tmp;
+      document.querySelectorAll('.thumbnail').forEach(function(el){ el.classList.remove('active'); });
+      t.parentElement.classList.add('active');
+      main.style.opacity = '0.4'; main.style.transition = 'opacity .15s ease';
+      setTimeout(function(){ main.style.opacity = '1'; }, 150);
+    });
+  });
+})();
+</script>
 </body>
 </html>
