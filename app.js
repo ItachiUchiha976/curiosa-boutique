@@ -16,6 +16,13 @@ const BUMP_NAME  = "Carnet Cuir Noir — Journal d'Explorateur";
 const BUMP_PRICE = 29;
 const FULL_CARNET_ID = 'carnet-001';
 
+/* ── Promo code ── */
+function getPromoCode() {
+  try { return localStorage.getItem('bos_promo_code') || null; }
+  catch { return null; }
+}
+const PROMO_DISCOUNT = 0.20; // -20%
+
 /* ── Load cart ── */
 function loadCart() {
   try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
@@ -164,7 +171,10 @@ function initCartPage() {
       return;
     }
 
-    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const promoCode = getPromoCode();
+    const discount = promoCode ? subtotal * PROMO_DISCOUNT : 0;
+    const total = subtotal - discount;
     const hasFullCarnet = cart.some(i => i.id === FULL_CARNET_ID);
     const bumpChecked   = cart.some(i => i.id === BUMP_ID);
 
@@ -190,7 +200,17 @@ function initCartPage() {
         </table>
       </div>
       <div class="cart-total">
-        <h3>Total : ${total.toFixed(2).replace('.', ',')} €</h3>
+        ${promoCode ? `
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-bottom:8px;text-align:center">
+            <span style="font-size:14px;color:#166534">🎉 Code <strong>${promoCode}</strong> appliqué : -${(PROMO_DISCOUNT*100).toFixed(0)}%</span>
+          </div>
+          <h3 style="margin-bottom:0">
+            <span style="text-decoration:line-through;color:#9ca3af;font-size:16px;margin-right:8px">${subtotal.toFixed(2).replace('.', ',')} €</span>
+            <span style="color:#10b981">${total.toFixed(2).replace('.', ',')} €</span>
+          </h3>
+        ` : `
+          <h3>Total : ${total.toFixed(2).replace('.', ',')} €</h3>
+        `}
         <div class="checkout-stub">
           ${hasFullCarnet ? '' : `
           <div class="order-bump">
