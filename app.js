@@ -21,7 +21,7 @@ function getPromoCode() {
   try { return localStorage.getItem('bos_promo_code') || null; }
   catch { return null; }
 }
-const PROMO_DISCOUNT = 0.10; // -10%
+const PROMO_DISCOUNT = 0.10; // -10% automatique sur le produit le plus cher
 
 /* ── Load cart ── */
 function loadCart() {
@@ -172,10 +172,9 @@ function initCartPage() {
     }
 
     const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-    const promoCode = getPromoCode();
-    // -20% sur le produit le plus cher uniquement (pas tout le panier)
-    const maxPrice = promoCode ? Math.max(...cart.map(i => i.price)) : 0;
-    const discount = promoCode ? maxPrice * PROMO_DISCOUNT : 0;
+    // -10% automatique sur le produit le plus cher (toujours actif)
+    const maxPrice = cart.length > 0 ? Math.max(...cart.map(i => i.price)) : 0;
+    const discount = maxPrice * PROMO_DISCOUNT;
     const total = subtotal - discount;
     const hasFullCarnet = cart.some(i => i.id === FULL_CARNET_ID);
     const bumpChecked   = cart.some(i => i.id === BUMP_ID);
@@ -202,9 +201,9 @@ function initCartPage() {
         </table>
       </div>
       <div class="cart-total">
-        ${promoCode ? `
+        ${discount > 0 ? `
           <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-bottom:8px;text-align:center">
-            <span style="font-size:14px;color:#166534">🎉 Code <strong>${promoCode}</strong> appliqué : -${(PROMO_DISCOUNT*100).toFixed(0)}%</span>
+            <span style="font-size:14px;color:#166534">🎉 -${(PROMO_DISCOUNT*100).toFixed(0)}% automatique sur le produit le + cher</span>
           </div>
           <h3 style="margin-bottom:0">
             <span style="text-decoration:line-through;color:#9ca3af;font-size:16px;margin-right:8px">${subtotal.toFixed(2).replace('.', ',')} €</span>
