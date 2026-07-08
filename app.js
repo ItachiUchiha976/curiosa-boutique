@@ -228,7 +228,7 @@ function initCartPage() {
           <h3>Finaliser ma commande</h3>
           <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Paiement 100&nbsp;% sécurisé. Carte bancaire sans compte PayPal. Livraison offerte · Satisfait ou remboursé 30 jours.</p>
           <label class="capture-consent"><input type="checkbox" id="cgv-check"> J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a>.</label>
-          <button type="button" class="btn-checkout" onclick="bosPayPalCheckout()">Payer par Carte ou PayPal</button>
+          <button type="button" class="btn-checkout" onclick="bosPayPalCheckout()">Payer par PayPal</button>
           <p class="checkout-note">Tu seras redirigé(e) vers PayPal pour finaliser le paiement en toute sécurité. Aucune donnée bancaire n'est stockée sur ce site.</p>
         </div>
       </div>`;
