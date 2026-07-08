@@ -173,7 +173,9 @@ function initCartPage() {
 
     const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
     const promoCode = getPromoCode();
-    const discount = promoCode ? subtotal * PROMO_DISCOUNT : 0;
+    // -20% sur le produit le plus cher uniquement (pas tout le panier)
+    const maxPrice = promoCode ? Math.max(...cart.map(i => i.price)) : 0;
+    const discount = promoCode ? maxPrice * PROMO_DISCOUNT : 0;
     const total = subtotal - discount;
     const hasFullCarnet = cart.some(i => i.id === FULL_CARNET_ID);
     const bumpChecked   = cart.some(i => i.id === BUMP_ID);
