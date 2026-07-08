@@ -40,7 +40,7 @@ ul { list-style: none; }
 button { cursor: pointer; font-family: inherit; }
 
 /* ── Layout ── */
-.container { max-width: 1140px; margin: 0 auto; padding: 0 1.25rem; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
 
 /* ── Topbar ── */
 .topbar {
