@@ -21,7 +21,7 @@ function getPromoCode() {
   try { return localStorage.getItem('bos_promo_code') || null; }
   catch { return null; }
 }
-const PROMO_DISCOUNT = 0.20; // -20%
+const PROMO_DISCOUNT = 0.10; // -10%
 
 /* ── Load cart ── */
 function loadCart() {
