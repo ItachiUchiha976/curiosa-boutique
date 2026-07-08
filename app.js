@@ -202,8 +202,8 @@ function initCartPage() {
       </div>
       <div class="cart-total">
         ${discount > 0 ? `
-          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:12px 16px;margin-bottom:8px;text-align:center">
-            <span style="font-size:14px;color:#166534">🎉 -${(PROMO_DISCOUNT*100).toFixed(0)}% automatique sur le produit le + cher</span>
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:8px 16px;margin-bottom:8px;text-align:center">
+            <span style="font-size:13px;color:#166534">🎉 -${(PROMO_DISCOUNT*100).toFixed(0)}% appliqué sur le produit le + cher</span>
           </div>
           <h3 style="margin-bottom:0">
             <span style="text-decoration:line-through;color:#9ca3af;font-size:16px;margin-right:8px">${subtotal.toFixed(2).replace('.', ',')} €</span>
