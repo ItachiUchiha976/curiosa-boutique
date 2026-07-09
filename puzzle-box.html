@@ -1,12 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carnet Cuir Parchemin — Curiosa Cabinet de Curiosités</title>
-  <meta name="description" content="Carnet simili-cuir noir vieilli A6, style journal d'explorateur. Cadeau original passionné d'histoire. 34€. Livraison 12-20j.">
-  <link rel="canonical" href="https://curiosaboutique.fr/produit-carnet.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boîte Puzzle Impossible — Curiosa Cabinet de Curiosités</title>
+  <meta name="description" content="Boîte puzzle en bois à tiroirs magiques et mécanisme impossible. Cadeau escape game mystérieux. 39€. Livraison 12-20j.">
+  <link rel="canonical" href="https://curiosaboutique.fr/puzzle-box.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
@@ -19,6 +21,7 @@ pintrk('page');
 <noscript><img height="1" width="1" style="display:none" src="https://ct.pinterest.com/v3/?event=init&tid=2612580380373&noscript=1" /></noscript>
 <!-- End Pinterest Tag -->
 <script src="bos-promo.js"></script>
+<script src="bos-stripe.js"></script>
 </head>
 <body>
 <div class="topbar">Livraison offerte — Livraison estimée 12 à 20 jours ouvrés &nbsp;·&nbsp; <a href="livraison.html">Détails</a></div>
@@ -30,9 +33,9 @@ pintrk('page');
           <li><a href="produit-boite-enigme.html" class="nav-link">Boîte-Énigme</a></li>
           <li><a href="produit-sablier.html" class="nav-link">Sablier</a></li>
           <li><a href="produit-carte.html" class="nav-link">Carte Vintage</a></li>
-          <li><a href="produit-carnet.html" class="nav-link active">Carnet</a></li>
+          <li><a href="produit-carnet.html" class="nav-link">Carnet</a></li>
           <li><a href="produit-statuette.html" class="nav-link">Statuette</a></li>
-          <li><a href="puzzle-box.html" class="nav-link">Puzzle Impossible</a></li>
+          <li><a href="puzzle-box.html" class="nav-link active">Puzzle Impossible</a></li>
           <li><a href="magnetic-hourglass.html" class="nav-link">Sablier Magnétique</a></li>
           <li><a href="spellbook-journal.html" class="nav-link">Carnet Grimoire</a></li>
           <li><a href="anubis-statue.html" class="nav-link">Statue Anubis</a></li>
@@ -64,35 +67,51 @@ pintrk('page');
   <a href="cgv.html">CGV &amp; Mentions légales</a>
 </nav>
 
-<div class="container"><nav class="breadcrumb"><a href="index.html">Accueil</a> <span>/</span> <a href="index.html#catalogue">Catalogue</a> <span>/</span> <span>Carnet Parchemin</span></nav></div>
+<div class="container"><nav class="breadcrumb"><a href="index.html">Accueil</a> <span>/</span> <a href="index.html#catalogue">Catalogue</a> <span>/</span> <span>Puzzle Impossible</span></nav></div>
 
 <main><div class="container">
   <div class="product-detail">
     <div>
       <div class="product-detail__gallery">
-        <img id="main-product-img" src="img/carnet-real.jpg" alt="Carnet cuir noir journal d'explorateur vintage — cabinet de curiosités Curiosa" loading="eager">
-        <div class="product-detail__badge-img">Papeterie</div>
+        <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,#2a1f14,#4a3520);display:flex;align-items:center;justify-content:center;border-radius:var(--radius);overflow:hidden">
+          <div style="text-align:center;color:#c8960c;font-family:var(--font-serif);font-size:1.2rem;padding:2rem">
+            <svg width="64" height="64" fill="none" stroke="#c8960c" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:1rem"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+            <div>Photo produit réelle à venir</div>
+            <div style="font-size:.7rem;color:#a08050;margin-top:.5rem">Boîte Puzzle Impossible</div>
+          </div>
+        </div>
+        <div class="product-detail__badge-img">Cadeau Expérience</div>
       </div>
-      <div style="margin-top:1rem;padding:1rem;background:var(--parch2);border-radius:var(--radius);font-size:.82rem;color:var(--text3)">Photo du produit réel. Légères variations possibles.</div>
+      <div style="margin-top:1rem;padding:1rem;background:var(--parch2);border-radius:var(--radius);font-size:.82rem;color:var(--text3)">Photo du produit réel à venir — visuel temporaire. Légères variations possibles.</div>
     </div>
     <div class="product-detail__info">
-      <div class="product-detail__tag">Papeterie · Journal d'Explorateur</div>
-      <h1 class="product-detail__title">Carnet Cuir Noir — Journal d'Explorateur</h1>
-      <p class="product-detail__story">Chaque grande découverte a commencé dans les pages d'un carnet. Ce journal à couverture simili-cuir noir vieilli rappelle ceux d'Indiana Jones, de Marco Polo ou de Darwin — des hommes qui ont changé le monde en prenant des notes.</p>
-      <div class="product-detail__price"><span class="price-main">34 €</span></div>
+      <div class="product-detail__tag">Cadeau Expérience · Puzzle &amp; Mystères</div>
+      <h1 class="product-detail__title">Boîte Puzzle Impossible</h1>
+      <p class="product-detail__story">Une boîte de puzzle en bois massif avec des tiroirs qui semblent magiques. Le mécanisme est impossible à deviner au premier regard — seuls les esprits les plus curieux trouveront le secret. Chaque tiroir révèle un nouveau mystère, chaque ouverture est une victoire.</p>
+      <div class="product-detail__price"><span class="price-main">39 €</span></div>
       <div class="product-features">
-        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Couverture simili-cuir vieilli, noir</div>
-        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Format A6, fermeture cordon avec attache cuir</div>
-        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Pages intérieures épaisses, reliure souple</div>
-        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Idéal : stylo, crayon, aquarelle, esquisses</div>
-        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Parfait en complément de la Lune en Lévitation</div>
+        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bois naturel massif, finition lisse et durable</div>
+        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mécanisme à tiroirs magiques — impossible à deviner au premier regard</div>
+        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Dimensions ~15×10×8 cm — parfait pour un bureau ou une étagère</div>
+        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Aucun outil requis — uniquement votre ingéniosité</div>
+        <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Idéal : escape game, amateurs de puzzles, cadeau mystérieux</div>
       </div>
-      <button class="btn-addcart" data-add-cart data-stripe-product="journal-infini" data-id="carnet-001" data-name="Carnet Cuir Noir — Journal d'Explorateur" data-price="34">Ajouter au panier — 34 €</button>
+      <button class="btn-addcart" data-add-cart data-stripe-product="puzzle-impossible" data-id="CUR-PUZ-001" data-name="Boîte Puzzle Impossible" data-price="39">Ajouter au panier — 39 €</button>
       <a href="panier.html" class="btn-secondary-full">Voir mon panier</a>
       <div class="delivery-note"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Livraison estimée 12 à 20 jours ouvrés · Retours 30 jours</div>
     </div>
   </div>
+
+  <div style="max-width:720px;margin:3rem auto 0">
+    <h2 style="font-family:var(--font-serif);font-size:1.5rem;margin-bottom:1rem">Questions fréquentes</h2>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-question">Quelle est la difficulté du mécanisme ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Difficulté intermédiaire à avancée. Les tiroirs magiques demandent de l'observation et de la logique — attendez-vous à passer 20 à 40 minutes la première fois. Aucune force nécessaire.</div></div>
+      <div class="faq-item"><button class="faq-question">Peut-on y cacher des objets ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Oui. Chaque tiroir secret est un compartiment caché une fois maîtrisé. Idéal pour ranger bijoux, billets ou petits secrets — personne ne saura les ouvrir sans connaître le mécanisme.</div></div>
+      <div class="faq-item"><button class="faq-question">Livraison et retours ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Expédition internationale, livraison estimée 12 à 20 jours ouvrés. Retours sous 30 jours si l'article est en état neuf. Voir <a href="livraison.html">notre politique de livraison</a>.</div></div>
+    </div>
+  </div>
 </div>
+
 <!-- Bloc CTA : newsletter + YouTube -->
 <section class="prod-cta">
   <div class="container">
@@ -117,31 +136,12 @@ pintrk('page');
 </main>
 
 <footer class="footer"><div class="container">
-  <div class="footer-bottom"><span>© 2026 Curiosa</span><span><a href="cgv.html">Mentions légales</a> · <a href="politique-confidentialite.html">Confidentialité</a> · <a href="index.html">Accueil</a></span></div>
+  <div class="footer-bottom"><span>© 2026 Curiosa — Cabinet de Curiosités</span><span><a href="cgv.html">Mentions légales</a> · <a href="politique-confidentialite.html">Confidentialité</a> · <a href="livraison.html">Livraison</a> · <a href="index.html">Accueil</a></span></div>
+  <p class="footer-disclaimer">Objet décoratif et ludique. Non destiné aux enfants de moins de 14 ans. Descriptions à titre informatif.</p>
 </div></footer>
 <script src="app.js"></script>
 
 <!-- umami-start --><script defer src="https://cloud.umami.is/script.js" data-website-id="d0fa94fe-a108-4590-a465-8f0017569370"></script><!-- umami-end -->
-<script src="bos-consent.js?v=3" defer></script><script>
-// Miniatures cliquables
-(function(){
-  var main=document.querySelector("#main-product-img,.product-main-visual img,[class*=gallery] img");
-  var thumbs=document.querySelectorAll(".thumbnail img");
-  if(!main||thumbs.length===0)return;
-  thumbs.forEach(function(t){
-    t.style.cursor="pointer";
-    t.parentElement.addEventListener("click",function(){
-      var tmp=main.src;main.src=t.src;t.src=tmp;
-      document.querySelectorAll(".thumbnail").forEach(function(e){e.classList.remove("active")});
-      t.parentElement.classList.add("active");
-      main.style.opacity="0.4";main.style.transition="opacity .15s ease";
-      setTimeout(function(){main.style.opacity="1"},150);
-    });
-  });
-})();
-</script>
-
-
-
+<script src="bos-consent.js?v=3" defer></script>
 </body>
 </html>
