@@ -28,6 +28,8 @@
     'puzzle-box':           'https://buy.stripe.com/7sY6oH8MP8rn0LM7wE5Vu0Q',
     'magnetic-hourglass':   'https://buy.stripe.com/bJe6oH4wz6jfcuu18g5Vu0R',
     'spellbook-journal':    'https://buy.stripe.com/dRm6oH5AD6jffGG04c5Vu0S',
+    'anubis-statue':        'https://buy.stripe.com/14A7sL6EH8rn3XY4ks5Vu0T',
+    'tarot-feuille-or':     'https://buy.stripe.com/eVq3cvgfh22Z0LMaIQ5Vu0U',
     'enceinte-bluetooth-vintage': 'https://buy.stripe.com/8x2aEX0gjcHD2TU4ks5Vu0e',
     'mini-projecteur-portable':   'https://buy.stripe.com/8x24gzd354b79ii7wE5Vu0f',
     'microphone-pro-streaming':   'https://buy.stripe.com/6oU9AT9QTgXTcuug3a5Vu0g',
@@ -63,6 +65,8 @@
     'puzzle-box-001': 'puzzle-box',
     'hourglass-mag-001': 'magnetic-hourglass',
     'grimoire-001': 'spellbook-journal',
+    'anubis-001': 'anubis-statue',
+    'tarot-gold-001': 'tarot-feuille-or',
   };
 
   function normalize(str) {
