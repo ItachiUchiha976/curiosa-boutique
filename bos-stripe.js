@@ -245,6 +245,7 @@
       "boite-enigme-001": "boite-mystere-puzzle",
       "sablier-001": "sablier-magnetique",
       "carnet-001": "journal-infini",
+      "carnet-bump-29": "journal-infini",
       "statuette-001": "statue-bastet",
       "carte-001": "carte-du-monde-vintage",
       "puzzle-box-001": "puzzle-box",
