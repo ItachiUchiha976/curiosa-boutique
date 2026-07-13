@@ -162,7 +162,7 @@ function initCartPage() {
               <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
               <input type="email" name="email" required placeholder="votre@email.fr" aria-label="Votre email">
               <button type="submit" class="btn-primary" style="white-space:nowrap">S'inscrire à la newsletter</button>
-              <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="cgv.html#rgpd">RGPD</a>).</label>
+              <label class="capture-consent"><input type="checkbox" name="consent" required> J'accepte de recevoir les emails du Cabinet Curiosa (désinscription en 1 clic — <a href="/cgv.html#rgpd">RGPD</a>).</label>
             </form>
             <p class="w3-msg capture-msg" style="color:var(--gold)">Merci ! Tu es inscrit(e) à la newsletter.</p>
           </div>
@@ -223,7 +223,7 @@ function initCartPage() {
           <div class="order-bump">
             <label class="order-bump__label">
               <input type="checkbox" id="bump-carnet-check" ${bumpChecked ? 'checked' : ''}>
-              <span class="order-bump__img"><img src="img/carnet-real.jpg" alt="Carnet Cuir Noir — Journal d'Explorateur" loading="lazy"></span>
+              <span class="order-bump__img"><img src="/img/carnet-real.jpg" alt="Carnet Cuir Noir — Journal d'Explorateur" loading="lazy"></span>
               <span class="order-bump__text">
                 <strong>Complétez votre cabinet</strong> — ajoutez le Carnet Cuir Noir, Journal d'Explorateur (même vraie photo que sur sa fiche).
                 <span class="order-bump__price">29&nbsp;€ ajouté à la commande <span class="order-bump__save">(34&nbsp;€ à l'unité — vous économisez 5&nbsp;€)</span></span>
@@ -233,7 +233,7 @@ function initCartPage() {
           </div>`}
           <h3>Finaliser ma commande</h3>
           <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Paiement 100&nbsp;% sécurisé par carte bancaire. Livraison offerte · Satisfait ou remboursé 30 jours.</p>
-          <label class="capture-consent"><input type="checkbox" id="cgv-check"> J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a>.</label>
+          <label class="capture-consent"><input type="checkbox" id="cgv-check"> J'ai lu et j'accepte les <a href="/cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a>.</label>
           <button type="button" class="btn-checkout" data-bos-cb onclick="bosCartCB(this)">💳 Payer par carte bancaire — ${total.toFixed(2).replace('.', ',')} €</button>
           <p class="checkout-note">Tu seras redirigé(e) vers notre page de paiement sécurisée (Stripe). Le montant débité est exactement celui affiché ci-dessus. Aucune donnée bancaire n'est stockée sur ce site.</p>
         </div>
