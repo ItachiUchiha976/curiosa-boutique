@@ -174,8 +174,12 @@ function initCartPage() {
     const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
     // -10% automatique sur le produit le plus cher (toujours actif)
     const maxPrice = cart.length > 0 ? Math.max(...cart.map(i => i.price)) : 0;
-    const discount = maxPrice * PROMO_DISCOUNT;
-    const total = subtotal - discount;
+    // BOS 13/07/2026 — remise arrondie au centime, calcul UNIQUE partage avec le checkout
+    // (bos-promo.js / bos-paypal.js / bos-stripe.js) : total affiche == total facture.
+    const discount = (window.BOS_PROMO && window.BOS_PROMO.discount)
+      ? window.BOS_PROMO.discount(cart)
+      : Math.round(maxPrice * PROMO_DISCOUNT * 100) / 100;
+    const total = Math.round((subtotal - discount) * 100) / 100;
     const hasFullCarnet = cart.some(i => i.id === FULL_CARNET_ID);
     const bumpChecked   = cart.some(i => i.id === BUMP_ID);
 
