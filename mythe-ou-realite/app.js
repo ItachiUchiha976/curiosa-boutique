@@ -102,7 +102,7 @@ const BANK = [
 
 const QUIZ_LEN = 10;
 const CHANNEL_URL = "https://www.youtube.com/channel/UCtI77IJDeqX1GXrZNkGJtaQ?sub_confirmation=1";
-const SITE_URL = "https://itachiuchiha976.github.io/mythe-ou-realite/";
+const SITE_URL = "https://curiosaboutique.fr/mythe-ou-realite/";
 
 let deck = [];     // questions de la partie
 let idx = 0;       // index question courante
@@ -256,7 +256,7 @@ function drawShareImage(s, rank){
   x.fillText('Sauras-tu faire mieux ?', W/2, 905);
   x.fillStyle='#d9a441';
   x.font='30px Georgia, serif';
-  x.fillText('itachiuchiha976.github.io/mythe-ou-realite', W/2, 975);
+  x.fillText('curiosaboutique.fr/mythe-ou-realite', W/2, 975);
 }
 
 function shareText(s, rank){
