@@ -89,6 +89,12 @@ pintrk('page');
         <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Idéal : bureau, salon, bibliothèque — cadeau original</div>
       </div>
       <button class="btn-addcart" data-add-cart data-stripe-product="sablier-magnetique" data-id="sablier-001" data-name="Sablier Rétro Métal Doré" data-price="44">Ajouter au panier — 44 €</button>
+          <div class="checkout-stripe">
+            <button type="button" data-bos-cb data-bos-price="44" data-bos-key="sablier-magnetique"
+              onclick="bosProductCB(this)" style="display:block;width:100%;max-width:420px;margin:12px auto 0;padding:14px 24px;background:#635BFF;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;text-align:center;">
+              💳 Acheter maintenant par carte — 44 €
+            </button>
+          </div>
       <div id="bos-trust-mount"></div>
       <a href="panier.html" class="btn-secondary-full">Voir mon panier</a>
       <div class="delivery-note">
@@ -110,7 +116,7 @@ pintrk('page');
     <div class="faq">
       <div class="faq-item"><button class="faq-question">Quelle est la taille du sablier ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Hauteur totale ~20 cm. Base ~7 cm de diamètre. Parfait pour un bureau ou une étagère — visible sans prendre trop de place.</div></div>
       <div class="faq-item"><button class="faq-question">Quelle est la durée d'écoulement ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Environ 15 minutes. Il peut être utilisé comme minuteur ou simplement comme objet décoratif — les deux fonctions se complètent bien.</div></div>
-      <div class="faq-item"><button class="faq-question">Le paiement est-il sécurisé ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Oui. Vous réglez par carte bancaire ou PayPal via un module chiffré — vos coordonnées bancaires ne nous sont jamais transmises ni stockées.</div></div>
+      <div class="faq-item"><button class="faq-question">Le paiement est-il sécurisé ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Oui. Vous réglez par carte bancaire via un module chiffré — vos coordonnées bancaires ne nous sont jamais transmises ni stockées.</div></div>
       <div class="faq-item"><button class="faq-question">Livraison et retours ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Expédition internationale, livraison estimée 12 à 20 jours ouvrés. Retours sous 30 jours. <a href="livraison.html">En savoir plus</a>.</div></div>
     </div>
   </div>

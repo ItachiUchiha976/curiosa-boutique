@@ -180,6 +180,8 @@ function initCartPage() {
       ? window.BOS_PROMO.discount(cart)
       : Math.round(maxPrice * PROMO_DISCOUNT * 100) / 100;
     const total = Math.round((subtotal - discount) * 100) / 100;
+    // BOS 13/07/2026 — le checkout CB (bos-stripe.js) facture EXACTEMENT ce total affiche.
+    window.bosCartTotal = function(){ return total; };
     const hasFullCarnet = cart.some(i => i.id === FULL_CARNET_ID);
     const bumpChecked   = cart.some(i => i.id === BUMP_ID);
 
@@ -230,10 +232,10 @@ function initCartPage() {
             </label>
           </div>`}
           <h3>Finaliser ma commande</h3>
-          <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Paiement 100&nbsp;% sécurisé. Carte bancaire sans compte PayPal. Livraison offerte · Satisfait ou remboursé 30 jours.</p>
+          <p style="font-size:.88rem;color:var(--text2);margin-bottom:1rem">Paiement 100&nbsp;% sécurisé par carte bancaire. Livraison offerte · Satisfait ou remboursé 30 jours.</p>
           <label class="capture-consent"><input type="checkbox" id="cgv-check"> J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a>.</label>
-          <button type="button" class="btn-checkout" onclick="bosPayPalCheckout()">Payer par PayPal</button>
-          <p class="checkout-note">Tu seras redirigé(e) vers PayPal pour finaliser le paiement en toute sécurité. Aucune donnée bancaire n'est stockée sur ce site.</p>
+          <button type="button" class="btn-checkout" data-bos-cb onclick="bosCartCB(this)">💳 Payer par carte bancaire — ${total.toFixed(2).replace('.', ',')} €</button>
+          <p class="checkout-note">Tu seras redirigé(e) vers notre page de paiement sécurisée (Stripe). Le montant débité est exactement celui affiché ci-dessus. Aucune donnée bancaire n'est stockée sur ce site.</p>
         </div>
       </div>`;
 

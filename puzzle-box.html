@@ -93,6 +93,12 @@ pintrk('page');
         <div class="product-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Idéal : escape game, amateurs de puzzles, cadeau mystérieux</div>
       </div>
       <button class="btn-addcart" data-add-cart data-stripe-product="puzzle-box" data-id="puzzle-box-001" data-name="Boîte Puzzle Impossible" data-price="29">Ajouter au panier — 29 €</button>
+          <div class="checkout-stripe">
+            <button type="button" data-bos-cb data-bos-price="29" data-bos-key="puzzle-box"
+              onclick="bosProductCB(this)" style="display:block;width:100%;max-width:420px;margin:12px auto 0;padding:14px 24px;background:#635BFF;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;text-align:center;">
+              💳 Acheter maintenant par carte — 29 €
+            </button>
+          </div>
       <div id="bos-trust-mount"></div>
       <a href="panier.html" class="btn-secondary-full">Voir mon panier</a>
       <div class="delivery-note"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Livraison estimée 12 à 20 jours ouvrés · Retours 30 jours</div>
@@ -112,7 +118,7 @@ pintrk('page');
     <div class="faq">
       <div class="faq-item"><button class="faq-question">Quelle est la difficulté du mécanisme ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Difficulté intermédiaire à avancée. Les croix coulissantes demandent de l'observation et de la logique — attendez-vous à passer 20 à 40 minutes la première fois. Aucune force nécessaire.</div></div>
       <div class="faq-item"><button class="faq-question">Peut-on y cacher des objets ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Oui. Une fois le mécanisme maîtrisé, le cube révèle un compartiment caché. Idéal pour glisser un bijou, un billet ou un petit mot — personne ne saura l’ouvrir sans connaître le secret.</div></div>
-      <div class="faq-item"><button class="faq-question">Le paiement est-il sécurisé ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Oui. Vous réglez par carte bancaire ou PayPal via un module chiffré — vos coordonnées bancaires ne nous sont jamais transmises ni stockées.</div></div>
+      <div class="faq-item"><button class="faq-question">Le paiement est-il sécurisé ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Oui. Vous réglez par carte bancaire via un module chiffré — vos coordonnées bancaires ne nous sont jamais transmises ni stockées.</div></div>
       <div class="faq-item"><button class="faq-question">Livraison et retours ? <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer">Expédition internationale, livraison estimée 12 à 20 jours ouvrés. Retours sous 30 jours si l'article est en état neuf. Voir <a href="livraison.html">notre politique de livraison</a>.</div></div>
     </div>
   </div>

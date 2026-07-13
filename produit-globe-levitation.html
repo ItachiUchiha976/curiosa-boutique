@@ -216,6 +216,12 @@ pintrk('page');
              mobile. Le pavé de 5 caractéristiques techniques est repoussé après la réassurance
              (voir plus bas) — rien n'est supprimé, juste réordonné. -->
         <button class="btn-addcart" data-add-cart data-stripe-product="lampe-lune-3d" data-id="lune-levitation-001" data-name="Lune en Lévitation Magnétique" data-price="79">Ajouter au panier — 79 €</button>
+          <div class="checkout-stripe">
+            <button type="button" data-bos-cb data-bos-price="79" data-bos-key="lampe-lune-3d"
+              onclick="bosProductCB(this)" style="display:block;width:100%;max-width:420px;margin:12px auto 0;padding:14px 24px;background:#635BFF;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:16px;cursor:pointer;text-align:center;">
+              💳 Acheter maintenant par carte — 79 €
+            </button>
+          </div>
         <div id="bos-trust-mount"></div>
         <a href="panier.html" class="btn-secondary-full">Voir mon panier</a>
 
@@ -224,7 +230,7 @@ pintrk('page');
           <span class="bos-delivery-window">Livraison estimée 12 à 20 jours ouvrés</span> · Retours 30 jours
         </div>
         <ul class="bos-reassurance-list">
-          <li>🔒 Paiement sécurisé PayPal ou carte bancaire — aucun compte requis</li>
+          <li>🔒 Paiement sécurisé par carte bancaireou carte bancaire — aucun compte requis</li>
           <li>✔ Satisfait ou remboursé 30 jours</li>
           <li>✔ Livraison suivie — numéro fourni à l'expédition</li>
         </ul>
@@ -332,7 +338,7 @@ pintrk('page');
           <button class="faq-question">Le paiement est-il sécurisé ?
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer">Oui. Vous réglez par carte bancaire ou PayPal via un module chiffré — vos coordonnées bancaires ne nous sont jamais transmises ni stockées.</div>
+          <div class="faq-answer">Oui. Vous réglez par carte bancaire via un module chiffré — vos coordonnées bancaires ne nous sont jamais transmises ni stockées.</div>
         </div>
       </div>
     </div>
@@ -353,7 +359,7 @@ pintrk('page');
         <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.3rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:1.5rem;margin-bottom:.45rem">&#128274;</div>
           <strong style="display:block;color:var(--text);margin-bottom:.3rem">Paiement 100&nbsp;% sécurisé</strong>
-          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Règlement via PayPal : vos coordonnées bancaires ne nous sont jamais transmises.</span>
+          <span style="font-size:.88rem;color:var(--text2);line-height:1.55">Règlement par carte bancaire : vos coordonnées bancaires ne nous sont jamais transmises.</span>
         </div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.3rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:1.5rem;margin-bottom:.45rem">&#128230;</div>
