@@ -15,3 +15,6 @@ node_modules/
 
 # OS
 Desktop.ini
+
+# Ebooks payants — JAMAIS en public (livraison par token VPS uniquement, cf §12.35)
+**/dl/
