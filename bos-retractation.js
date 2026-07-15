@@ -7,6 +7,7 @@
    Composant autonome, sans dépendance externe. */
 (function () {
   'use strict';
+  function init() {
   if (document.getElementById('bos-retract-link')) return;
 
   var API = 'https://api.tonargentexplique.fr/retractation';
@@ -114,4 +115,7 @@
         msg.innerHTML = 'Une erreur est survenue. Vous pouvez aussi nous écrire directement à <b>contact@' + domaine + '</b>.';
       });
   });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
