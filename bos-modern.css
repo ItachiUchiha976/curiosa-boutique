@@ -187,3 +187,6 @@ body.bos-atc-open { padding-bottom: 76px; }
   .btn-primary::after { animation: none !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+
+/* Lisibilite descriptions produit (retour Fred 16/07) */
+.product-detail__story{ font-family:var(--font-sans); font-style:normal; color:var(--text); font-size:1.02rem; }
