@@ -178,6 +178,24 @@ pintrk('page');
           <img id="main-product-img" src="img/moon-real.jpg"
                alt="Lampe lune 3D en lévitation magnétique — cabinet de curiosités Curiosa" loading="eager">
           <div class="product-detail__badge-img">Pièce phare</div>
+          <div class="bos-anim-produit" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="bosMoonGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#E8D094" stop-opacity=".55"/>
+                  <stop offset="100%" stop-color="#E8D094" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <circle class="bos-moon-halo" cx="50" cy="50" r="42" fill="url(#bosMoonGlow)"/>
+              <g class="bos-moon-rotate">
+                <circle cx="50" cy="50" r="26" fill="#E8D094"/>
+                <circle cx="40" cy="40" r="5" fill="#C8960C" opacity=".55"/>
+                <circle cx="60" cy="46" r="3.2" fill="#C8960C" opacity=".45"/>
+                <circle cx="46" cy="62" r="4" fill="#C8960C" opacity=".5"/>
+                <circle cx="62" cy="60" r="2.4" fill="#C8960C" opacity=".4"/>
+              </g>
+            </svg>
+          </div>
         </div>
         <div style="margin-top:1rem;padding:1rem;background:var(--parch2);border-radius:var(--radius);font-size:.82rem;color:var(--text3)">
           Photo du produit réel. Légères variations de teinte possibles selon la lumière ambiante.

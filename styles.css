@@ -1104,3 +1104,138 @@ button { cursor: pointer; font-family: inherit; }
   line-height: 1.45;
 }
 
+/* ============================================================================
+   BOS — Animations thématiques fiches produit (16/07/2026)
+   SVG inline + CSS keyframes uniquement. Un conteneur par fiche, placé dans
+   .product-detail__gallery (déjà position:relative;overflow:hidden côté site).
+   ============================================================================ */
+.bos-anim-produit{
+  position: absolute;
+  top: .7rem; right: .7rem;
+  width: 72px; height: 72px;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 50%;
+  background: rgba(245,237,213,.6);
+  box-shadow: 0 2px 10px rgba(13,11,7,.2);
+}
+.bos-anim-produit svg{ display:block; width:100%; height:100%; }
+@media(min-width:640px){ .bos-anim-produit{ width:92px; height:92px; } }
+.bos-anim-produit--wide{ border-radius:16px; width:118px; height:48px; }
+@media(min-width:640px){ .bos-anim-produit--wide{ width:140px; height:56px; } }
+.bos-anim-produit--tall{ border-radius:16px; width:58px; height:104px; background:rgba(245,237,213,.5); }
+@media(min-width:640px){ .bos-anim-produit--tall{ width:68px; height:120px; } }
+.bos-anim-produit--card{ border-radius:10px; width:70px; height:98px; background:rgba(245,237,213,.3); box-shadow:0 3px 12px rgba(13,11,7,.28); }
+@media(min-width:640px){ .bos-anim-produit--card{ width:82px; height:112px; } }
+.bos-anim-produit--square{ border-radius:16px; width:76px; height:76px; }
+@media(min-width:640px){ .bos-anim-produit--square{ width:94px; height:94px; } }
+@media (prefers-reduced-motion: reduce){
+  .bos-anim-produit *{ animation: none !important; }
+}
+
+/* --- Kayframes partagées --- */
+@keyframes bos-spin-slow{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
+@keyframes bos-pulse-glow{ 0%,100%{ opacity:.55; transform:scale(1); } 50%{ opacity:.9; transform:scale(1.12); } }
+@keyframes bos-twinkle{ 0%,100%{ opacity:0; transform:scale(.3); } 50%{ opacity:1; transform:scale(1); } }
+
+/* --- 1. Lune en lévitation : lune qui tourne + halo --- */
+.bos-moon-rotate{ transform-origin:50px 50px; animation:bos-spin-slow 9s linear infinite; }
+.bos-moon-halo{ transform-origin:50px 50px; animation:bos-pulse-glow 5s ease-in-out infinite; }
+
+/* --- 2. Carte du monde : avion qui traverse + trait pointillé --- */
+.bos-plane-fly{ transform-origin:0 0; animation:bos-plane-fly 6s ease-in-out infinite; }
+@keyframes bos-plane-fly{
+  0%{ transform:translate(8px,40px) rotate(-18deg); opacity:0; }
+  8%{ opacity:1; }
+  50%{ transform:translate(65px,10px) rotate(0deg); }
+  92%{ opacity:1; }
+  100%{ transform:translate(124px,40px) rotate(18deg); opacity:0; }
+}
+
+/* --- 3. Carnet : plume qui écrit --- */
+.bos-ink-line{ animation:bos-ink-write 5s ease-in-out infinite; }
+@keyframes bos-ink-write{
+  0%{ stroke-dashoffset:90; opacity:1; }
+  55%{ stroke-dashoffset:0; opacity:1; }
+  80%{ stroke-dashoffset:0; opacity:1; }
+  92%,100%{ stroke-dashoffset:0; opacity:0; }
+}
+.bos-quill-move{ transform-origin:0 0; animation:bos-quill-move 5s ease-in-out infinite; }
+@keyframes bos-quill-move{
+  0%{ transform:translate(18px,60px) rotate(-25deg); opacity:0; }
+  6%{ opacity:1; }
+  25%{ transform:translate(35px,45px) rotate(-10deg); }
+  50%{ transform:translate(50px,58px) rotate(-30deg); }
+  75%{ transform:translate(66px,50px) rotate(-15deg); }
+  92%{ transform:translate(82px,52px) rotate(-25deg); opacity:1; }
+  100%{ transform:translate(82px,52px) rotate(-25deg); opacity:0; }
+}
+
+/* --- 4. Statuette : scintillements dorés égyptiens --- */
+.bos-sparkle{ transform-origin:center; animation:bos-twinkle 3.6s ease-in-out infinite; }
+.bos-sparkle--2{ animation-delay:1.1s; }
+.bos-sparkle--3{ animation-delay:2.1s; }
+
+/* --- 5. Sablier : sable qui coule --- */
+.bos-sand-top{ transform-origin:35px 56px; animation:bos-sand-drain 4.4s ease-in-out infinite; }
+.bos-sand-bottom{ transform-origin:35px 64px; animation:bos-sand-fill 4.4s ease-in-out infinite; }
+@keyframes bos-sand-drain{ 0%{ transform:scaleY(1); } 88%{ transform:scaleY(.05); } 100%{ transform:scaleY(1); } }
+@keyframes bos-sand-fill{ 0%{ transform:scaleY(.05); } 88%{ transform:scaleY(1); } 100%{ transform:scaleY(.05); } }
+.bos-grain{ animation:bos-grain-fall 1.1s linear infinite; }
+.bos-grain--2{ animation-delay:.55s; }
+@keyframes bos-grain-fall{ 0%{ transform:translateY(0); opacity:0; } 10%{ opacity:1; } 90%{ opacity:1; } 100%{ transform:translateY(44px); opacity:0; } }
+
+/* --- 6. Boîte-énigme : serrure/engrenage qui pivote --- */
+.bos-gear-spin{ transform-origin:50px 50px; animation:bos-spin-slow 7s linear infinite; }
+
+/* --- 7. Puzzle Impossible : pièce qui s'emboîte --- */
+.bos-piece-slide{ transform-origin:0 0; animation:bos-piece-slide 4.5s ease-in-out infinite; }
+@keyframes bos-piece-slide{
+  0%{ transform:translate(-6px,74px) rotate(-8deg); opacity:0; }
+  10%{ opacity:1; }
+  45%,70%{ transform:translate(37px,37px) rotate(0deg); opacity:1; }
+  90%{ transform:translate(37px,37px) rotate(0deg); opacity:0; }
+  100%{ transform:translate(-6px,74px) rotate(-8deg); opacity:0; }
+}
+
+/* --- 8. Sablier magnétique : limaille qui ondule --- */
+.bos-filing{ transform-origin:center bottom; animation:bos-filing-sway 2.4s ease-in-out infinite; }
+.bos-filing--1{ transform-origin:26px 60px; animation-delay:0s; }
+.bos-filing--2{ transform-origin:38px 60px; animation-delay:.15s; }
+.bos-filing--3{ transform-origin:50px 60px; animation-delay:.3s; }
+.bos-filing--4{ transform-origin:62px 60px; animation-delay:.45s; }
+.bos-filing--5{ transform-origin:74px 60px; animation-delay:.6s; }
+@keyframes bos-filing-sway{ 0%,100%{ transform:rotate(-12deg); } 50%{ transform:rotate(12deg); } }
+
+/* --- 9. Carnet Grimoire : étincelles magiques --- */
+.bos-magic-sparkle{ transform-origin:center; animation:bos-sparkle-float 3.2s ease-in-out infinite; }
+.bos-magic--1{ animation-delay:0s; }
+.bos-magic--2{ animation-delay:.6s; }
+.bos-magic--3{ animation-delay:1.2s; }
+.bos-magic--4{ animation-delay:1.8s; }
+@keyframes bos-sparkle-float{
+  0%{ opacity:0; transform:translateY(6px) scale(.4); }
+  50%{ opacity:1; transform:translateY(-4px) scale(1); }
+  100%{ opacity:0; transform:translateY(-12px) scale(.5); }
+}
+
+/* --- 10. Statue Anubis : flamme de bougie qui vacille --- */
+.bos-flame-flicker{ transform-origin:35px 68px; animation:bos-flame 2.6s ease-in-out infinite; }
+@keyframes bos-flame{
+  0%,100%{ transform:scale(1) skewX(0deg); opacity:1; }
+  20%{ transform:scale(1.05,.96) skewX(-3deg); opacity:.92; }
+  45%{ transform:scale(.94,1.08) skewX(3deg); opacity:1; }
+  70%{ transform:scale(1.08,.92) skewX(-2deg); opacity:.9; }
+  85%{ transform:scale(.97,1.04) skewX(2deg); opacity:1; }
+}
+
+/* --- 11. Tarot Feuille d'Or : carte qui se retourne --- */
+.bos-card-flip{ transform-origin:41px 56px; animation:bos-card-flip 5s ease-in-out infinite; }
+@keyframes bos-card-flip{ 0%,40%{ transform:scaleX(1); } 50%{ transform:scaleX(.05); } 60%,100%{ transform:scaleX(1); } }
+.bos-card-face{ transform-origin:41px 56px; }
+.bos-card-face--a{ animation:bos-card-face-a 5s step-end infinite; }
+.bos-card-face--b{ animation:bos-card-face-b 5s step-end infinite; opacity:0; }
+@keyframes bos-card-face-a{ 0%,49%{ opacity:1; } 50%,100%{ opacity:0; } }
+@keyframes bos-card-face-b{ 0%,49%{ opacity:0; } 50%,100%{ opacity:1; } }
+
