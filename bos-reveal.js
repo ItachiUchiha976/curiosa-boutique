@@ -83,6 +83,55 @@
       var nodes = document.querySelectorAll('[data-reveal]:not(.is-in)');
       for (var i = 0; i < nodes.length; i++) { nodes[i].classList.add('is-in'); }
     }, 5000);
+
+    /* ---- Barre d'achat sticky mobile (fiches produit) ----
+       Construite depuis le 1er bouton [data-add-cart] de la page :
+       zero duplication de logique (le clic proxifie le vrai bouton,
+       donc panier + Stripe + compteurs restent la source unique). */
+    (function stickyAtc() {
+      var mainBtn = document.querySelector('[data-add-cart]');
+      if (!mainBtn || document.querySelector('.bos-sticky-atc')) return;
+      var name = mainBtn.getAttribute('data-name') || document.title.split(String.fromCharCode(8212))[0];
+      var price = mainBtn.getAttribute('data-price');
+
+      var bar = document.createElement('div');
+      bar.className = 'bos-sticky-atc';
+      var meta = document.createElement('div');
+      meta.className = 'bos-sticky-atc__meta';
+      var priceEl = document.createElement('div');
+      priceEl.className = 'bos-sticky-atc__price';
+      priceEl.textContent = price ? (price + ' €') : '';
+      var nameEl = document.createElement('div');
+      nameEl.className = 'bos-sticky-atc__name';
+      nameEl.textContent = name || '';
+      meta.appendChild(priceEl); meta.appendChild(nameEl);
+      var btn = document.createElement('button');
+      btn.className = 'bos-sticky-atc__btn';
+      btn.type = 'button';
+      btn.textContent = 'Ajouter au panier';
+      btn.addEventListener('click', function () {
+        mainBtn.click();
+        btn.textContent = '✓ Ajouté au panier';
+        window.setTimeout(function () { btn.textContent = 'Ajouter au panier'; }, 2200);
+      });
+      bar.appendChild(meta); bar.appendChild(btn);
+      document.body.appendChild(bar);
+
+      /* Visible uniquement quand le CTA principal est hors ecran (au-dessus) */
+      var toggle = function (show) {
+        bar.classList.toggle('is-visible', show);
+        document.body.classList.toggle('bos-atc-open', show);
+      };
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          var e = entries[0];
+          toggle(!e.isIntersecting && e.boundingClientRect.top < 0);
+        }, { threshold: 0 });
+        obs.observe(mainBtn);
+      } else {
+        toggle(true);
+      }
+    })();
   } catch (err) { /* en cas d'erreur, on laisse le contenu visible (CSS reduced-motion non atteint : fail-safe) */
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
   }

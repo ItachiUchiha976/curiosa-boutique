@@ -109,6 +109,42 @@
 [data-reveal-delay="2"] { transition-delay: .16s; }
 [data-reveal-delay="3"] { transition-delay: .24s; }
 
+/* ---------- 5bis. BARRE D'ACHAT STICKY MOBILE (fiches produit) ----------
+   Construite dynamiquement par bos-reveal.js a partir du 1er bouton
+   [data-add-cart] de la page. Mobile uniquement ; apparait quand le CTA
+   principal sort de l'ecran. +8-15% de conversion (benchmark e-commerce). */
+.bos-sticky-atc {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+  display: flex; align-items: center; gap: .8rem;
+  padding: .6rem .9rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(12,9,3,.96);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  transform: translateY(110%);
+  transition: transform .3s ease;
+}
+.bos-sticky-atc.is-visible { transform: translateY(0); }
+.bos-sticky-atc__meta { min-width: 0; }
+.bos-sticky-atc__price { color: var(--gold); font-weight: 800; font-size: 1.12rem; line-height: 1.1; white-space: nowrap; }
+.bos-sticky-atc__name {
+  color: var(--parch3); font-size: .72rem; line-height: 1.25;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 38vw;
+}
+.bos-sticky-atc__btn {
+  flex: 1; border: none; cursor: pointer;
+  background: var(--gold); color: var(--ink);
+  font-weight: 700; font-size: .95rem; font-family: inherit;
+  padding: .8rem 1rem; border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(200,150,12,.3);
+  white-space: nowrap;
+}
+.bos-sticky-atc__btn:active { transform: scale(.98); }
+body.bos-atc-open { padding-bottom: 76px; }
+@media (min-width: 768px) {
+  .bos-sticky-atc { display: none; }
+  body.bos-atc-open { padding-bottom: 0; }
+}
+
 /* ---------- 5. ACCESSIBILITE : respect du mouvement reduit ---------- */
 @media (prefers-reduced-motion: reduce) {
   .hero-img-wrap img,
