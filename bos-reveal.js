@@ -69,11 +69,20 @@
     /* Meme pass synchrone : les elements au-dessus de la ligne de flottaison
        recoivent 'is-in' avant tout repaint => aucun flash masque->visible. */
     var vh = window.innerHeight || document.documentElement.clientHeight;
-    seen.forEach(function (el) {
+    seen.slice().forEach(function (el) {
       var top = el.getBoundingClientRect().top;
       if (top < vh * 0.88) { el.classList.add('is-in'); }
       io.observe(el);
     });
+
+    /* Backstop dur : apres 5 s, tout element encore masque est revele coute que coute.
+       Garantit qu'aucun contenu ne reste jamais invisible, meme si IO + scroll echouent
+       (ex. dernier bloc au ras du footer, saut d'ancre, scroll inertiel). L'animation
+       reste active pour le scroll normal avant cette echeance. */
+    window.setTimeout(function () {
+      var nodes = document.querySelectorAll('[data-reveal]:not(.is-in)');
+      for (var i = 0; i < nodes.length; i++) { nodes[i].classList.add('is-in'); }
+    }, 5000);
   } catch (err) { /* en cas d'erreur, on laisse le contenu visible (CSS reduced-motion non atteint : fail-safe) */
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
   }
