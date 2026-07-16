@@ -145,12 +145,45 @@ body.bos-atc-open { padding-bottom: 76px; }
   body.bos-atc-open { padding-bottom: 0; }
 }
 
+/* ---------- 5ter. HEADER AUTO-MASQUANT AU SCROLL (16/07, demande Fred) ----------
+   Le menu disparait en descendant (plus de place pour le contenu) et
+   reapparait des qu'on remonte — ordi ET mobile. */
+.header, header.site-header {
+  transition: transform .28s ease;
+}
+.header.bos-nav-hidden, header.bos-nav-hidden {
+  transform: translateY(-110%);
+}
+
+/* ---------- 5quater. HERO : etoile filante + inclinaison 3D souris ---------- */
+.hero .bos-shooting-star {
+  position: absolute;
+  width: 110px; height: 2px;
+  background: linear-gradient(90deg, rgba(255,246,214,.95), transparent);
+  border-radius: 2px;
+  top: 12%; left: -12%;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+  animation: bosShootingStar 7.5s ease-in infinite;
+  animation-delay: 2.2s;
+}
+@keyframes bosShootingStar {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(14deg); }
+  1.5% { opacity: .95; }
+  7%   { opacity: 0; transform: translate(120vw, 32vh) rotate(14deg); }
+  100% { opacity: 0; transform: translate(120vw, 32vh) rotate(14deg); }
+}
+.hero-img-wrap { perspective: 700px; }
+.hero-img-wrap img { transform-style: preserve-3d; }
+
 /* ---------- 5. ACCESSIBILITE : respect du mouvement reduit ---------- */
 @media (prefers-reduced-motion: reduce) {
   .hero-img-wrap img,
   .hero-img-wrap::before,
   .hero::after,
   .hero-title em,
+  .hero .bos-shooting-star,
   .btn-primary::after { animation: none !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

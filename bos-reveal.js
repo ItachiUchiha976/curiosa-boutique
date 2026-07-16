@@ -132,6 +132,50 @@
         toggle(true);
       }
     })();
+
+    /* ---- Header auto-masquant au scroll (16/07, demande Fred) ----
+       Descente = le menu se range ; remontee = il revient. Ne se cache
+       jamais quand le menu mobile est ouvert. */
+    (function autoHideHeader() {
+      var h = document.querySelector('.header') || document.querySelector('header');
+      if (!h) return;
+      var lastY = window.scrollY, tk = false;
+      window.addEventListener('scroll', function () {
+        if (tk) return; tk = true;
+        window.requestAnimationFrame(function () {
+          var y = window.scrollY;
+          var menuOpen = document.querySelector('.mobile-menu.open');
+          if (!menuOpen && y > lastY + 8 && y > 160) h.classList.add('bos-nav-hidden');
+          else if (y < lastY - 8 || y <= 160) h.classList.remove('bos-nav-hidden');
+          lastY = y; tk = false;
+        });
+      }, { passive: true });
+    })();
+
+    /* ---- Hero : etoile filante + inclinaison 3D qui suit la souris (desktop) ---- */
+    (function heroExtras() {
+      var hero = document.querySelector('.hero');
+      var wrap = document.querySelector('.hero-img-wrap');
+      if (hero && !hero.querySelector('.bos-shooting-star')) {
+        var star = document.createElement('div');
+        star.className = 'bos-shooting-star';
+        hero.appendChild(star);
+      }
+      if (!wrap || !window.matchMedia || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+      var img = wrap.querySelector('img');
+      if (!img) return;
+      wrap.addEventListener('mousemove', function (e) {
+        var r = wrap.getBoundingClientRect();
+        var dx = (e.clientX - r.left) / r.width - 0.5;
+        var dy = (e.clientY - r.top) / r.height - 0.5;
+        img.style.animation = 'none';
+        img.style.transform = 'rotateY(' + (dx * 14) + 'deg) rotateX(' + (-dy * 10) + 'deg) scale(1.03)';
+      });
+      wrap.addEventListener('mouseleave', function () {
+        img.style.transform = '';
+        img.style.animation = '';
+      });
+    })();
   } catch (err) { /* en cas d'erreur, on laisse le contenu visible (CSS reduced-motion non atteint : fail-safe) */
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
   }
