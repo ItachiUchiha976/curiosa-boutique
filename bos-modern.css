@@ -1,0 +1,120 @@
+/* ============================================================
+   BOS MODERN LAYER — 16/07/2026
+   Couche ADDITIVE de modernisation (hero vivant, boutons premium,
+   cartes produit profondes, reveal au scroll). Ne remplace aucune
+   regle de base : uniquement des enrichissements visuels.
+   S'appuie sur les tokens de la boutique (--gold, --ink, --parch...).
+   Respecte prefers-reduced-motion. Reutilisable sur les 5 boutiques.
+   ============================================================ */
+
+/* ---------- 1. HERO VIVANT ---------- */
+/* Halo lumineux anime derriere le visuel phare */
+.hero-img-wrap { position: relative; }
+.hero-img-wrap::before {
+  content: '';
+  position: absolute; inset: -20%;
+  background: radial-gradient(circle at 50% 45%,
+     rgba(232,208,148,.45) 0%,
+     rgba(200,150,12,.22) 34%,
+     transparent 68%);
+  filter: blur(8px);
+  z-index: 0;
+  animation: bosGlow 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-img-wrap img { position: relative; z-index: 1; animation: bosFloat 7s ease-in-out infinite; will-change: transform; }
+.hero-badge-over { z-index: 2; }
+
+@keyframes bosGlow {
+  0%,100% { opacity: .7;  transform: scale(1); }
+  50%     { opacity: 1;   transform: scale(1.07); }
+}
+@keyframes bosFloat {
+  0%,100% { transform: translateY(0)     rotate(-.6deg); }
+  50%     { transform: translateY(-14px) rotate(.6deg); }
+}
+
+/* Champ d'etoiles discret dans le hero sombre */
+.hero { position: relative; }
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,246,214,.9),  transparent),
+    radial-gradient(1.2px 1.2px at 28% 68%, rgba(255,246,214,.55), transparent),
+    radial-gradient(1.7px 1.7px at 62% 30%, rgba(255,246,214,.75), transparent),
+    radial-gradient(1.1px 1.1px at 82% 58%, rgba(255,246,214,.5),  transparent),
+    radial-gradient(1.3px 1.3px at 46% 82%, rgba(255,246,214,.6),  transparent),
+    radial-gradient(1.2px 1.2px at 90% 16%, rgba(255,246,214,.55), transparent),
+    radial-gradient(1.0px 1.0px at 8%  54%, rgba(255,246,214,.5),  transparent);
+  animation: bosTwinkle 5s ease-in-out infinite alternate;
+}
+@keyframes bosTwinkle { from { opacity: .3; } to { opacity: .95; } }
+.hero-grid { position: relative; z-index: 2; }
+
+/* Titre : reflet dore anime sur le mot cle en italique */
+.hero-title em {
+  background: linear-gradient(100deg, #E8D094 0%, #FBEFC4 28%, #C8960C 52%, #FBEFC4 78%, #E8D094 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: bosShine 6.5s linear infinite;
+}
+@keyframes bosShine { to { background-position: 220% center; } }
+
+/* ---------- 2. BOUTONS PREMIUM ---------- */
+.btn-primary {
+  position: relative; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(200,150,12,.26);
+  transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+}
+.btn-primary::after {
+  content: ''; position: absolute; top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+  transform: skewX(-18deg);
+  transition: left .6s ease;
+  pointer-events: none;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(200,150,12,.42); }
+.btn-primary:hover::after { left: 135%; }
+
+.btn-card {
+  position: relative; overflow: hidden;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200,150,12,.32); }
+
+/* ---------- 3. CARTES PRODUIT PREMIUM ---------- */
+.product-card { transition: transform .32s cubic-bezier(.2,.7,.2,1), box-shadow .32s; }
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(28,21,8,.24), 0 4px 14px rgba(200,150,12,.16);
+}
+.product-card__img { position: relative; }
+.product-card__img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(12,9,3,.30), transparent 55%);
+  opacity: 0; transition: opacity .3s; pointer-events: none;
+}
+.product-card:hover .product-card__img::after { opacity: 1; }
+
+/* ---------- 4. REVEAL AU SCROLL ---------- */
+[data-reveal] {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+[data-reveal-delay="1"] { transition-delay: .08s; }
+[data-reveal-delay="2"] { transition-delay: .16s; }
+[data-reveal-delay="3"] { transition-delay: .24s; }
+
+/* ---------- 5. ACCESSIBILITE : respect du mouvement reduit ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-img-wrap img,
+  .hero-img-wrap::before,
+  .hero::after,
+  .hero-title em,
+  .btn-primary::after { animation: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
