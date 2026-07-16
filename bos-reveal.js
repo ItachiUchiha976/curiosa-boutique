@@ -47,7 +47,24 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' });
+
+    /* Filet de securite : tout element deja depasse par le scroll (haut au-dessus
+       du bas du viewport) est revele, meme si l'IO l'a manque sur un scroll rapide
+       ou un saut d'ancre. Aucun contenu ne peut donc rester invisible. */
+    var safety = function () {
+      var vhh = window.innerHeight || document.documentElement.clientHeight;
+      for (var i = seen.length - 1; i >= 0; i--) {
+        var el = seen[i];
+        if (el.classList.contains('is-in')) { seen.splice(i, 1); continue; }
+        if (el.getBoundingClientRect().top < vhh) { el.classList.add('is-in'); io.unobserve(el); seen.splice(i, 1); }
+      }
+    };
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      window.requestAnimationFrame(function () { safety(); ticking = false; });
+    }, { passive: true });
 
     /* Meme pass synchrone : les elements au-dessus de la ligne de flottaison
        recoivent 'is-in' avant tout repaint => aucun flash masque->visible. */
