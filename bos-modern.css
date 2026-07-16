@@ -190,3 +190,6 @@ body.bos-atc-open { padding-bottom: 76px; }
 
 /* Lisibilite descriptions produit (retour Fred 16/07) */
 .product-detail__story{ font-family:var(--font-sans); font-style:normal; color:var(--text); font-size:1.02rem; }
+
+/* Pastille retractation au-dessus de la barre sticky ATC (conflit visuel attrape 16/07) */
+body.bos-atc-open #bos-retract-link{ bottom: 88px; }
