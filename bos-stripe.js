@@ -649,6 +649,14 @@
        (sur FocusLab c'est « .product-ctas », deux niveaux plus haut). */
     var n = cb, dernier = null;
     for (var i = 0; n && n !== document.body && i < 5; i++) {
+      /* CORRIGÉ 01/08/2026 — ne JAMAIS réduire la fiche produit (.product-detail)
+         à 1 colonne : sur la fiche Lune en Lévitation, cette remontée atteignait
+         le conteneur grid principal (.product-detail--reorder, 2 colonnes sur
+         desktop) et l'écrasait à ~93 px (le « flash » : bon rendu puis cassé,
+         car bos-stripe.js s'exécutait après le CSS). Le rôle de cette fonction
+         est de réparer les blocs d'actions INTERNES, pas la grille de la fiche. */
+      if (n.className && typeof n.className === 'string' &&
+          /product-detail/.test(n.className)) break;
       var s = window.getComputedStyle(n);
       if ((s.display === 'flex' || s.display === 'inline-flex') && s.flexDirection !== 'column') {
         n.style.flexDirection = 'column';
