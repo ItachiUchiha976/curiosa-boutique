@@ -427,11 +427,16 @@ button { cursor: pointer; font-family: inherit; }
 /* BOS 04/07/2026 — modificateur scopé à la fiche flagship (Lune en Lévitation) UNIQUEMENT :
    sur mobile, priorité à l'offre (photo → titre/bullets/prix/CTA) avant la galerie secondaire
    (vidéo + 4 photos). Les 5 autres fiches produit gardent .product-detail par défaut, inchangé. */
-.product-detail--reorder {
-  grid-template-areas:
-    "primary"
-    "info"
-    "secondary";
+/* CORRIGÉ 01/08/2026 : le bloc 1-colonne était HORS media query → il écrasait le desktop
+   (grid-template-columns 1fr 1fr + areas 1-colonne = colonne « primary » écrasée à ~93px,
+   image principale invisible). Enveloppé dans max-width:767px pour ne s'appliquer qu'en mobile. */
+@media(max-width:767px){
+  .product-detail--reorder {
+    grid-template-areas:
+      "primary"
+      "info"
+      "secondary";
+  }
 }
 .product-detail--reorder .product-detail__media-primary { grid-area: primary; }
 .product-detail--reorder .product-detail__media-secondary { grid-area: secondary; margin-top: 0; }
