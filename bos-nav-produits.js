@@ -27,7 +27,8 @@
         { nom: 'Lampe Lune en lévitation', url: 'produit-globe-levitation.html', cle: 'lampe-lune-3d', prix: 59 },
         { nom: 'Statuette égyptienne',     url: 'produit-statuette.html',        cle: 'statue-bastet', prix: 34 },
         { nom: 'Sablier magnétique',       url: 'produit-sablier.html',          cle: 'sablier-magnetique', prix: 44 },
-        { nom: 'Boîte-énigme',             url: 'produit-boite-enigme.html',     cle: 'puzzle-box', prix: 54 } ] },
+        { nom: 'Boîte-énigme',             url: 'produit-boite-enigme.html',     cle: 'puzzle-box', prix: 54 },
+        { nom: 'Verre rotatif 360°',       url: 'produit-verre-rotatif.html',    cle: 'verre-rotatif-cristal', prix: 29.9 } ] },
       { titre: 'Papeterie', produits: [
         { nom: 'Carnet de voyage',         url: 'produit-carnet.html',           cle: 'journal-infini', prix: 34 },
         { nom: 'Carte du monde',           url: 'produit-carte.html',            cle: 'carte-du-monde-vintage', prix: 39 } ] }
